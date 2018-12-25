@@ -45,8 +45,8 @@ class Htb extends Model
     protected $casts = [
         'id' => 'integer',
         'lucky_no' => 'string',
-        'amount' => 'string',
-        'mtl' => 'string',
+        'amount' => 'integer',
+        'mtl' => 'integer',
         'mtl_vaule' => 'string',
         'donar' => 'string',
         'address' => 'string'
