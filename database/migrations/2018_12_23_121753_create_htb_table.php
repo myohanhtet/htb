@@ -16,9 +16,9 @@ class CreateHtbTable extends Migration
         Schema::create('htb', function (Blueprint $table) {
             $table->increments('id');
             $table->string('lucky_no')->nullable();
-            $table->string('amount');
-            $table->text('mtl');
-            $table->string('mtl_vaule');
+            $table->integer('amount');
+            $table->text('mtl')->nullable();
+            $table->integer('mtl_vaule')->default(0);
             $table->text('donar');
             $table->text('address');
             $table->timestamps();
