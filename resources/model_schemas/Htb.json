@@ -1,0 +1,109 @@
+[
+    {
+        "name": "id",
+        "dbType": "integer,true,true",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "lucky_no",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": null,
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "amount",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": null,
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "mtl",
+        "dbType": "text",
+        "htmlType": "textarea",
+        "validations": null,
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "mtl_vaule",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": null,
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "donar",
+        "dbType": "text",
+        "htmlType": "textarea",
+        "validations": null,
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "address",
+        "dbType": "text",
+        "htmlType": "textarea",
+        "validations": null,
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "created_at",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "name": "updated_at",
+        "dbType": "datetime",
+        "htmlType": "date",
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": false,
+        "inForm": false,
+        "inIndex": false
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,,project_domain"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,,project_subdomain"
+    }
+]
