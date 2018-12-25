@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td>ရက္စြဲ</td>
-            <td>{{ \Carbon\Carbon::parse($bill['created_at'])->toFormattedDateString() }}</td>
+            <td>{{ \Carbon\Carbon::parse($bill['created_at'])->toDayDateTimeString() }}</td>
         </tr>
        
     </tbody>
