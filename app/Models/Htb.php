@@ -46,7 +46,7 @@ class Htb extends Model
         'id' => 'integer',
         'lucky_no' => 'string',
         'amount' => 'integer',
-        'mtl' => 'integer',
+        'mtl' => 'string',
         'mtl_vaule' => 'string',
         'donar' => 'string',
         'address' => 'string'

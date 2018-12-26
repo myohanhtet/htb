@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td>မဲနံပါတ္</td>
-            <td></td>
+            <td>{{ $bill['lucky_no'] }}</td>
         </tr>
         <tr>
             <td></td>
