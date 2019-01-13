@@ -13,7 +13,7 @@
         @include('flash::message')
 
         <div class="clearfix"></div>
-        <div class="box box-primary">
+        <div class="box box-warning">
             <div class="box-body">
               <div class="row">
                 <div class="col-lg-6">

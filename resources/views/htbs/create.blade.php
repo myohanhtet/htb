@@ -9,7 +9,7 @@
     </section>
     <div class="content">
         @include('adminlte-templates::common.errors')
-        <div class="box box-yellow">
+        <div class="box box-warning">
 
             <div class="box-body">
                 <div class="row">
