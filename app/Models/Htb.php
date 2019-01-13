@@ -58,7 +58,8 @@ class Htb extends Model
      * @var array
      */
     public static $rules = [
-        
+        'donar' => 'required',
+        'address' => 'required',
     ];
 
     

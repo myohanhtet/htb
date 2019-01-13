@@ -22,8 +22,8 @@ class DashboardController extends Controller
 
        $sumData['value'] = Htb::sum('amount');
        $sumData['mtlvalue'] = Htb::sum('mtl_vaule');
+       $sumData['totalvalue'] = $sumData['value'] + $sumData['mtlvalue'];
 
-       // dd($sumData['value']);
         return view('dashboard.index',['sumData' => $sumData]);
     }   
 
