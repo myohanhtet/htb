@@ -22,7 +22,6 @@ Route::middleware('auth')->group(function () {
 
 	Route::redirect('/', '/htbs/create');
 	Route::resource('htbs', 'HtbController');
-	Route::get('print','HtbController@printPdf');
 
 });
 
