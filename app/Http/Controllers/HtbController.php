@@ -60,7 +60,6 @@ class HtbController extends AppBaseController
 
         Flash::success('Htb saved successfully.');
 
-        // return redirect(route('htbs.index'));
         return view('htbs.print_view',['filename' => $filename, 'htb' =>$htb])->with('filename',$filename);
     }
 
@@ -82,7 +81,6 @@ class HtbController extends AppBaseController
         }
         $filename = $this->printPdf($htb->id);
 
-        // return view('htbs.show')->with('htb', $htb);
         return view('htbs.print_view',['filename'=> $filename ,'htb'=> $htb]);
     }
 
@@ -130,10 +128,8 @@ class HtbController extends AppBaseController
 
         Flash::success('Htb updated successfully.');
 
-        // return redirect(route('htbs.index'));
         $filename = $this->printPdf($htb->id);
 
-        // return view('htbs.show')->with('htb', $htb);
         return view('htbs.print_view',['filename'=> $filename ,'htb'=> $htb]);
     }
 
@@ -163,12 +159,12 @@ class HtbController extends AppBaseController
 
     public function printPdf($id)
     {
-
+        $bill = Htb::find($id);
         $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('Nicola Asuni');
-        $pdf->SetTitle('TCPDF Example 006');
-        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetAuthor('Kophyo');
+        $pdf->SetTitle('လက္ခံျဖတ္ပိုင္း');
+        $pdf->SetSubject('invoice');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');  
 
         $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 006', PDF_HEADER_STRING);
@@ -180,13 +176,10 @@ class HtbController extends AppBaseController
         $fontname = \TCPDF_FONTS::addTTFfont('fonts/Zawgyi-One.ttf', 'TrueTypeUnicode','', 96);
         $pdf->SetFont($fontname, '', 11, '', false);
 
-        $bill = Htb::find($id);
         $view = view('htbs.print')->with('bill', $bill);
         $html = $view->render();
         $pdf->AddPage();        
         $pdf->writeHTML($html);
-        
-        //$pdf->Output('example_006.pdf', 'I');
         
         $filelocation = public_path('invoice/');
         $filename = $bill['id'].'_'. date('Y_m_i_s') .'.pdf';

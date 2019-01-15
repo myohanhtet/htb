@@ -7,13 +7,13 @@
 <!-- Amount Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('amount', 'ေငြပေဒသာ:') !!}
-    {!! Form::text('amount', null, ['class' => 'form-control']) !!}
+    {!! Form::number('amount', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Mtl Vaule Field -->
 <div class="form-group col-sm-4">
     {!! Form::label('mtl_vaule', 'လွဴဖြယ္ပစၥည္းတန္ဖိုး:') !!}
-    {!! Form::text('mtl_vaule', null, ['class' => 'form-control']) !!}
+    {!! Form::number('mtl_vaule', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Mtl Field -->

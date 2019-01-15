@@ -2,88 +2,74 @@
 
 @section('content')
     <section class="content-header">
+      <div class="text-center">
+        <h4>
+          ကမာရြတ္ၿမိဳ႕နယ္၊ ထန္းတပင္ေက်ာင္းတိုက္၊ ဆုေတာင္းျပည့္ ကိုးန၀င္းကပ္ေက်ာ္သိမ္ဦးေစတီေတာ္
+        </h4>
+        <h4>
+          (၁၀၃)ႀကိမ္ေျမာက္ ဗုဒၶပူဇနိယပြဲေတာ္
+        </h4>
+        <h3>
+          စာေရးတံမဲေလာင္းလွဴပူေဇာ္ပြဲ
+        </h3>
+        <h3>
+           ေငြပေဒသာပင္ႏွင့္ပစၥည္းတန္ဖိုး စာရင္းခ်ဳပ္
+        </h3>
+      </div>
+    </section>
 
     <div class="content">
         <div class="clearfix"></div>
 
         @include('flash::message')
+        <div class="row">          
+          <div class="col-md-4">
+            <div class="info-box">
+              <!-- Apply any bg-* class to to the icon to color it -->
+              <span class="info-box-icon bg-yellow"><i class="fa fa-usd" aria-hidden="true"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">ေငြပေဒသာစုစုေပါင္း</span>
+                <span class="info-box-number">
+                  
+                    {!! $sumData['value'] !!}
+                  
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <div class="col-md-4">
+            <div class="info-box">
+              <!-- Apply any bg-* class to to the icon to color it -->
+              <span class="info-box-icon bg-red"><i class="fa fa-usd" aria-hidden="true"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">လွဴဖြယ္ပစၥည္းတန္ဖိုး</span>
+                <span class="info-box-number">{!! $sumData['mtlvalue'] !!}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <div class="col-md-4">
+            <div class="info-box">
+              <!-- Apply any bg-* class to to the icon to color it -->
+              <span class="info-box-icon bg-green"><i class="fa fa-usd" aria-hidden="true"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">ႏွစ္ရပ္ေပါင္း တန္ဖိုး</span>
+                <span class="info-box-number">{!! $sumData['totalvalue'] !!}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+        </div>
+        
 
         <div class="clearfix"></div>
+    </div> 
         
-        <div class="row">
-          <div class="col-md-3">
-              <div class="box box-danger">
-              <div class="box-body">
-                <div id="app_div"></div>
-                <ul class="list-group">
-                <li class="list-group-item">
-                  <span class="badge">14</span>
-                  Cras justo odio
-                </li>
-                <li class="list-group-item">
-                  <span class="badge">14</span>
-                  Cras justo odio
-                </li>
-                <li class="list-group-item">
-                  <span class="badge">14</span>
-                  Cras justo odio
-                </li>
-                <li class="list-group-item">
-                  <span class="badge">14</span>
-                  Cras justo odio
-                </li>
-              </ul>
-                <a href="{{ url('domain') }}/1">More info</a>
-              </div>
-            </div>
-          </div><!--/col-md-3-->
-          <div class="col-md-3">
-            <div class="box box-danger">
-              <div class="box-body">
-                <div id="inf_div"></div>
-                <a href="{{ url('domain') }}/2">More info</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="box box-danger">
-              <div class="box-body">
-                <div id="supp_div"></div>
-                <a href="{{ url('domain') }}/3">More info</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="box box-danger">
-              <div class="box-body">
-                <div id="admin_div"></div>
-                <a href="{{ url('domain') }}/4">More info</a>
-              </div>
-            </div>
-          </div>
-        </div>
- 
-
-        <div class="text-center">
-            <!-- <h1>"For live"</h1> -->
-            <button class="getLive">Get</button>
-        </div>
-    </div>
-
-
-{!! $lava->render('DonutChart', 'Application', 'app_div') !!}
-{!! $lava->render('DonutChart', 'Infrastructure', 'inf_div') !!}
-{!! $lava->render('DonutChart', 'Support', 'supp_div') !!}
-{!! $lava->render('DonutChart', 'Admin', 'admin_div') !!}
 @endsection
 
-
-@push('scripts')
-  <script>
-    $('.domain').on('change', function() {        
-         window.location.href = "{{ url('dashboard/domain') }}/" + this.value;
-    });
-  </script>
-@endpush
 
 
