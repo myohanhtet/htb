@@ -1,3 +1,6 @@
+@php 
+   $en_mya = [ '0' => '၀', '1' => '၁', '2' => '၂', '3' => '၃', '4' => '၄', '5' => '၅', '6' => '၆', '7' => '၇', '8' => '၈', '9' => '၉',];
+@endphp
 <table width="200">
     <tbody>
         <tr>
@@ -14,7 +17,7 @@
         </tr>
         <tr>
             <td>ေျပစာအမွတ္</td>
-            <td>{{ $bill['id'] }}</td>
+            <td>{{ strtr($bill['id'],$en_mya) }}</td>
         </tr>
         <tr>
             <td></td>
@@ -22,7 +25,7 @@
         </tr>
         <tr>
             <td>မဲနံပါတ္</td>
-            <td>{{ $bill['lucky_no'] }}</td>
+            <td>{{ strtr($bill['lucky_no'],$en_mya) }}</td>
         </tr>
         <tr>
             <td></td>
@@ -43,7 +46,8 @@
     <tbody>
         <tr>
             <td width="20%">လွဴဖြယ္ပစၥည္း</td>
-            <td width="80%">ေငြပေဒသာ {{ $bill['amount'] }} က်ပ္ႏွင့္  {{ $bill['mtl'] }}</td>
+            <td width="80%">ေငြပေဒသာ             
+         {{ strtr($bill['amount'],$en_mya) }} က်ပ္ႏွင့္  {{ $bill['mtl'] }}</td>
         </tr>
         <tr>
             <td></td>

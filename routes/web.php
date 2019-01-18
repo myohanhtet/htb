@@ -22,12 +22,10 @@ Route::middleware('auth')->group(function () {
 
 	Route::redirect('/', '/htbs/create');
 	Route::resource('htbs', 'HtbController');
-
 	Route::get('print','HtbController@printPdf');
 	Route::resource('lucky','LuckyController');
 	Route::get('dashboard','DashboardController@index')->name('dashboard.index');
 	Route::get('lucky-find','LuckyController@showPrint')->name('lucky.find');
-
 
 });
 

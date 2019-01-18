@@ -63,9 +63,5 @@ class User extends Authenticatable{
             'email' => 'string|email|max:255|unique:users,email',
             'password' => 'required_without:name|string|min:6|confirmed',
     ];
-
-    public function project() {
-        return $this->hasMany(Project::class, 'actionName');
-    }
     
 }
