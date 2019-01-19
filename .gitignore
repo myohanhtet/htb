@@ -1,6 +1,8 @@
 /node_modules
 /public/hot
 /public/storage
+/public/invoice
+/public/luckyinvoice
 /storage/*.key
 /vendor
 /.idea

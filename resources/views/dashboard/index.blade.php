@@ -1,3 +1,6 @@
+@php 
+  $en_mya = ['0' => '၀', '1' => '၁', '2' => '၂', '3' => '၃', '4' => '၄', '5' => '၅', '6' => '၆', '7' => '၇', '8' => '၈', '9' => '၉',]; 
+@endphp
 @extends('layouts.app')
 
 @section('content')
@@ -29,9 +32,9 @@
               <span class="info-box-icon bg-yellow"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">ေငြပေဒသာစုစုေပါင္း</span>
-                <span class="info-box-number">
-                  
-                    {!! $sumData['value'] !!}
+                <span class="info-box-number">                   
+                    
+                    {!! strtr($sumData['value'],$en_mya) !!}
                   
                 </span>
               </div>
@@ -45,7 +48,7 @@
               <span class="info-box-icon bg-red"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">လွဴဖြယ္ပစၥည္းတန္ဖိုး</span>
-                <span class="info-box-number">{!! $sumData['mtlvalue'] !!}</span>
+                <span class="info-box-number">{!! strtr($sumData['mtlvalue'],$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -57,7 +60,7 @@
               <span class="info-box-icon bg-green"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">ႏွစ္ရပ္ေပါင္း တန္ဖိုး</span>
-                <span class="info-box-number">{!! $sumData['totalvalue'] !!}</span>
+                <span class="info-box-number">{!! strtr($sumData['totalvalue'],$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
