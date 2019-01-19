@@ -109,7 +109,6 @@ class LuckyController extends Controller
 
         $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 006', PDF_HEADER_STRING);
 
-        // $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
         $pdf->SetMargins(30, 20, 10, true);
         $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
 

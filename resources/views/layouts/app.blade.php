@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="qz-MM">
 <head>
     <meta charset="UTF-8">
     <title>Htantabin Monastery</title>
