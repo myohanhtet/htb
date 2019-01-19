@@ -56,9 +56,17 @@ class LuckyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $htb = Htb::find(request()->id);
+
+        if (empty($htb)) {
+            Flash::error('Htb not found');
+
+            return redirect(route('htbs.index'));
+        }
+
+        return view('luckys.edit')->with('htb', $htb);
     }
 
     /**
@@ -89,8 +97,6 @@ class LuckyController extends Controller
         $luckyNo = request()->lucky_no;
 
         $lucky = Htb::where('lucky_no','=',$luckyNo)->get();
-        
-        // dd($total);
 
         $filename = $this->printPdf($lucky,$luckyNo);
 
@@ -100,7 +106,7 @@ class LuckyController extends Controller
     public function printPdf($lucky,$luckyNo)
     {
         // $bill = Htb::find($id);
-        $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $pdf = new LMYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Kophyo');
         $pdf->SetTitle('Lucky');
@@ -137,7 +143,7 @@ class LuckyController extends Controller
     }
 }
 
-class MYPDF extends \TCPDF {
+class LMYPDF extends \TCPDF {
 
     //Page header
     public function Header() {

@@ -19,7 +19,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string remember_token
  */
 
-class User extends Authenticatable{
+class User extends Authenticatable {
 
     use Notifiable;
 

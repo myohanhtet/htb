@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 	Route::resource('lucky','LuckyController');
 	Route::get('dashboard','DashboardController@index')->name('dashboard.index');
 	Route::get('lucky-find','LuckyController@showPrint')->name('lucky.find');
-
+	Route::get('lucky-edit','LuckyController@edit')->name('lucky.edit');
 });
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
