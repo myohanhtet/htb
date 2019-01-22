@@ -98,12 +98,4 @@
         "inForm": false,
         "inIndex": false
     },
-    {
-        "type": "relation",
-        "relation": "mtm,,project_domain"
-    },
-    {
-        "type": "relation",
-        "relation": "mtm,,project_subdomain"
-    }
 ]

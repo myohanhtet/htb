@@ -13,16 +13,14 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id = null)
+    public function index()
     {
-       $valueTotal = Htb::sum('amount');
-       // $valueMtlTotal = Htb::sum('mtl_vaule');
-
        $sumData = [];
 
        $sumData['value'] = Htb::sum('amount');
        $sumData['mtlvalue'] = Htb::sum('mtl_vaule');
        $sumData['totalvalue'] = $sumData['value'] + $sumData['mtlvalue'];
+       $sumData['totaldonar'] = Htb::count();
 
         return view('dashboard.index',['sumData' => $sumData]);
     }   

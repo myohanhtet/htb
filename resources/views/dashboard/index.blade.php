@@ -26,7 +26,8 @@
 
         @include('flash::message')
         <div class="row">          
-          <div class="col-md-4">
+
+          <div class="col-md-3">
             <div class="info-box">
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-yellow"><i class="fa fa-usd" aria-hidden="true"></i></span>
@@ -42,7 +43,7 @@
             </div>
             <!-- /.info-box -->
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="info-box">
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-red"><i class="fa fa-usd" aria-hidden="true"></i></span>
@@ -54,7 +55,7 @@
             </div>
             <!-- /.info-box -->
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="info-box">
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-green"><i class="fa fa-usd" aria-hidden="true"></i></span>
@@ -66,6 +67,20 @@
             </div>
             <!-- /.info-box -->
           </div>
+
+          <div class="col-md-3">
+            <div class="info-box">
+              <!-- Apply any bg-* class to to the icon to color it -->
+              <span class="info-box-icon bg-aqua"><i class="fa fa-users" aria-hidden="true"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">အလွဴရွင္ေပါင္း</span>
+                <span class="info-box-number">{!! strtr($sumData['totaldonar'],$en_mya) !!}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+
         </div>
         
 

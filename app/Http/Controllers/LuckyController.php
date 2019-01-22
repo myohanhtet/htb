@@ -14,8 +14,8 @@ class LuckyController extends Controller
      */
     public function index()
     {
-        $totalLucky = Htb::where('lucky_no','=','1')->get();
-        return view('luckys.index',['luckys'=>$totalLucky]);
+        // $totalLucky = Htb::where('lucky_no','=','1')->get();
+        // return view('luckys.index',['luckys'=>$totalLucky]);
     }
 
     /**
@@ -89,8 +89,6 @@ class LuckyController extends Controller
         $luckyNo = request()->lucky_no;
 
         $lucky = Htb::where('lucky_no','=',$luckyNo)->get();
-        
-        // dd($total);
 
         $filename = $this->printPdf($lucky,$luckyNo);
 
@@ -99,7 +97,6 @@ class LuckyController extends Controller
 
     public function printPdf($lucky,$luckyNo)
     {
-        // $bill = Htb::find($id);
         $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Kophyo');
