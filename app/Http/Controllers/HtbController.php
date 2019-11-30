@@ -205,9 +205,9 @@ class MYPDF extends \TCPDF {
         $fontname = \TCPDF_FONTS::addTTFfont('fonts/Zawgyi-One.ttf', 'TrueTypeUnicode','', 96);
         $this->SetFont($fontname, '', 12, '', false);
         $this->SetY(8);
-        $this->writeHtml('<span style="text-align:center;line-height:2;">'.($ui_config['invoice-title-one'] == null ? "Invoice Title One":$ui_config['invoice-title-one'] ).'<br>
-'.($ui_config['invoice-title-two'] == null ? "Invoice Title Two": $ui_config['invoice-title-two']).'<br>
-'.($ui_config['invoice-title-three'] == null ? "Invoice title Three": $ui_config['invoice-title-three']).'</span><br>');
+        $this->writeHtml('<span style="text-align:center;line-height:2;">'.($ui_config['invoice-title-one'] == null ? "Invoice Title One": uni2zg($ui_config['invoice-title-one']) ).'<br>
+'.($ui_config['invoice-title-two'] == null ? "Invoice Title Two": uni2zg($ui_config['invoice-title-two'])).'<br>
+'.($ui_config['invoice-title-three'] == null ? "Invoice title Three": uni2zg($ui_config['invoice-title-three'])).'</span><br>');
     }
 
 }
