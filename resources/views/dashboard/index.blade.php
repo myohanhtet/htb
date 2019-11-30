@@ -7,7 +7,7 @@
     <section class="content-header">
       <div class="text-center">
         <h4>
-          {!! ($ui_config['dash-title-one'] == null ? "Dashboard Title One" : $us_config['dash-title-one']) !!}
+          {!! ($ui_config['dash-title-one'] == null ? "Dashboard Title One" : $ui_config['dash-title-one']) !!}
         </h4>
         <h4>
           {!! ($ui_config['dash-title-two'] == null ? "Dashboard Title Two" : $ui_config['dash-title-two']) !!}
