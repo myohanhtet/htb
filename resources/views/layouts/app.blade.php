@@ -32,7 +32,12 @@
     <link rel="mask-icon" href="{{ url('image/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-
+<style>
+    @import url(//fonts.googleapis.com/earlyaccess/tharlon.css);
+    body{
+        font-family: 'Tharlon', sans-serif !important;
+    }
+</style>
     @yield('css')
 </head>
 

@@ -1,5 +1,5 @@
 @php 
-  $en_mya = ['0' => '၀', '1' => '၁', '2' => '၂', '3' => '၃', '4' => '၄', '5' => '၅', '6' => '၆', '7' => '၇', '8' => '၈', '9' => '၉',]; 
+  $en_mya = ['0' => 'ဝ', '1' => '၁', '2' => '၂', '3' => '၃', '4' => '၄', '5' => '၅', '6' => '၆', '7' => '၇', '8' => '၈', '9' => '၉',]; 
 @endphp
 @extends('layouts.app')
 
@@ -7,16 +7,16 @@
     <section class="content-header">
       <div class="text-center">
         <h4>
-          ကမာရြတ္ၿမိဳ႕နယ္၊ ထန္းတပင္ေက်ာင္းတိုက္၊ ဆုေတာင္းျပည့္ ကိုးန၀င္းကပ္ေက်ာ္သိမ္ဦးေစတီေတာ္
+          {!! ($ui_config['dash-title-one'] == null ? "Dashboard Title One" : $us_config['dash-title-one']) !!}
         </h4>
         <h4>
-          (၁၀၃)ႀကိမ္ေျမာက္ ဗုဒၶပူဇနိယပြဲေတာ္
+          {!! ($ui_config['dash-title-two'] == null ? "Dashboard Title Two" : $ui_config['dash-title-two']) !!}
         </h4>
         <h3>
-          စာေရးတံမဲေလာင္းလွဴပူေဇာ္ပြဲ
+          {!! ($ui_config['dash-title-three'] == null ? "Dashboard Title Three" : $ui_config['dash-title-three']) !!}
         </h3>
         <h3>
-           ေငြပေဒသာပင္ႏွင့္ပစၥည္းတန္ဖိုး စာရင္းခ်ဳပ္
+          {!! ($ui_config['dash-title-four'] == null ? "Dashboard Title Four" : $ui_config['dash-title-four'] ) !!}
         </h3>
       </div>
     </section>
@@ -32,7 +32,7 @@
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-yellow"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">ေငြပေဒသာစုစုေပါင္း</span>
+                <span class="info-box-text">ငွေပဒေသာစုစုပေါင်း</span>
                 <span class="info-box-number">                   
                     
                     {!! strtr($sumData['value'],$en_mya) !!}
@@ -48,7 +48,7 @@
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-red"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">လွဴဖြယ္ပစၥည္းတန္ဖိုး</span>
+                <span class="info-box-text">လှူဖွယ်ပစ္စည်းတန်ဖိုး</span>
                 <span class="info-box-number">{!! strtr($sumData['mtlvalue'],$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
@@ -60,7 +60,7 @@
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-green"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">ႏွစ္ရပ္ေပါင္း တန္ဖိုး</span>
+                <span class="info-box-text">နှစ်ရပ်ပေါင်း တန်ဖိုး</span>
                 <span class="info-box-number">{!! strtr($sumData['totalvalue'],$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
@@ -73,7 +73,7 @@
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-aqua"><i class="fa fa-users" aria-hidden="true"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">အလွဴရွင္ေပါင္း</span>
+                <span class="info-box-text">အလှူရှင်ပေါင်း</span>
                 <span class="info-box-number">{!! strtr($sumData['totaldonar'],$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->

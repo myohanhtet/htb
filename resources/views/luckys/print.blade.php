@@ -5,7 +5,7 @@
 <p>အလွဴခံပုဂၢိဳလ္ ......................................... </p>
 <hr><p></p>
 @foreach($luckys as $lucky)
-	<p><strong>ေငြပေဒသာ {{ strtr($lucky['amount'],$en_mya) }} ႏွင့္ {{ $lucky['mtl'] }}</strong>{{ $lucky['donar'] }}| {{ $lucky['address'] }}</p>
+	<p><strong>ေငြပေဒသာ {{ strtr($lucky['amount'],$en_mya) }} ႏွင့္ {{ uni2zg($lucky['mtl']) }}</strong>{{ uni2zg($lucky['donar']) }}| {{ uni2zg($lucky['address']) }}</p>
 @endforeach
 
 	<p>ေငြပေဒသာစုစုေပါင္း : {{ strtr($total['amount'],$en_mya) }}</p>

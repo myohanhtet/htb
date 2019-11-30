@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="content-header">
-        <h1 class="pull-left">ထန္းတပင္ေက်ာင္းတိုက္၊ (၁၀၃)ႀကိမ္ေျမာက္ ဗုဒၶပူဇနိယပြဲေတာ္စာေရးတံမဲ ေလာင္းလွဴပူေဇာ္ပြဲ</h1><br>
+        <h1 class="pull-left">{!! $ui_config['title'] !!}</h1><br>
         <h1 class="pull-right">
 
             <a class="btn btn-success pull-right flat" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('htbs.create') !!}">Next <i class="fa fa-forward" aria-hidden="true"></i></a>
@@ -34,7 +34,9 @@
         <div class="clearfix"></div>
 
             <div class="text-center">
-                <embed src="{{ url('invoice/') .'/' .$filename }}" alt="pdf" width="1120" height="500" />
+                <object data="{{ url('invoice/') .'/' .$filename }}" type="application/pdf" width="1120" height="500">
+                    <p>Cannot load PDF</p>
+                </object>
             </div>
   
         </div>

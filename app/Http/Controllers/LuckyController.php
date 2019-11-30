@@ -14,8 +14,8 @@ class LuckyController extends Controller
      */
     public function index()
     {
-        // $totalLucky = Htb::where('lucky_no','=','1')->get();
-        // return view('luckys.index',['luckys'=>$totalLucky]);
+        $totalLucky = Htb::where('lucky_no','=','1')->get();
+        return view('luckys.index',['luckys'=>$totalLucky]);
     }
 
     /**

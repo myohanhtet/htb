@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateHtbRequest;
 use App\Http\Requests\UpdateHtbRequest;
 use App\Models\Htb;
+use App\Models\Setting;
 use App\Repositories\HtbRepository;
 use Flash;
 use Response;
@@ -160,6 +161,10 @@ class HtbController extends AppBaseController
     public function printPdf($id)
     {
         $bill = Htb::find($id);
+
+        $bill['mtl'] = uni2zg($bill['mtl']);
+        $bill['donar'] = uni2zg($bill['donar']);
+        $bill['address'] = uni2zg($bill['address']);
         $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Kophyo');
@@ -195,14 +200,14 @@ class MYPDF extends \TCPDF {
 
     //Page header
     public function Header() {
-        
+        $ui_config = Setting::pluck('value','name');
         // Set font
         $fontname = \TCPDF_FONTS::addTTFfont('fonts/Zawgyi-One.ttf', 'TrueTypeUnicode','', 96);
         $this->SetFont($fontname, '', 12, '', false);
         $this->SetY(8);
-        $this->writeHtml('<span style="text-align:center;line-height:2;">ရန္ကုန္တိုင္းေဒသႀကီး၊ ကမာ႐ြတ္ၿမိဳ႔နယ္၊ ထန္းတပင္ေက်ာင္းတိုက္<br>
-ကိုးန၀င္းကပ္ေက်ာ္သိမ္ဦးေစတီေတာ္၊ (၁၀၃)ႀကိမ္ေျမာက္ ဗုဒၶပူဇနိယပြဲေတာ္<br>
-စာေရးတံမဲ, ေလာင္းလွဴပူေဇာ္ပြဲ၊ စာေရးတံမဲ လက္ခံျဖတ္ပိုင္း</span><br>');
+        $this->writeHtml('<span style="text-align:center;line-height:2;">'.($ui_config['invoice-title-one'] == null ? "Invoice Title One":$ui_config['invoice-title-one'] ).'<br>
+'.($ui_config['invoice-title-two'] == null ? "Invoice Title Two": $ui_config['invoice-title-two']).'<br>
+'.($ui_config['invoice-title-three'] == null ? "Invoice title Three": $ui_config['invoice-title-three']).'</span><br>');
     }
 
 }

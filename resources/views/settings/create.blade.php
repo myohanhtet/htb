@@ -3,9 +3,8 @@
 @section('content')
     <section class="content-header">
         <h1>
-           {!! ($ui_config['title'] == null ? "Title" :$ui_config['title']) !!}
-        </h1><br>
-        <a href="{{ route('htbs.index') }}" class="btn btn-success flat"> <i class="fa fa-backward" aria-hidden="true"></i> Back To Table</a>
+            Setting
+        </h1>
     </section>
     <div class="content">
         @include('adminlte-templates::common.errors')
@@ -13,9 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'htbs.store']) !!}
+                    {!! Form::open(['route' => 'settings.store']) !!}
 
-                        @include('htbs.fields')
+                        @include('settings.fields')
 
                     {!! Form::close() !!}
                 </div>

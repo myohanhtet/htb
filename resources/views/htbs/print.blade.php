@@ -55,7 +55,7 @@
         </tr>
         <tr>
             <td width="20%">အလွဴရွင္အမည္</td>
-            <td width="80%">{{ $bill['donar'] }}</td>
+            <td width="80%">{{  $bill['donar'] }}</td>
         </tr>
         <tr>
             <td></td>

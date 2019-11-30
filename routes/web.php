@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\Project;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,9 +25,15 @@ Route::middleware('auth')->group(function () {
 	Route::get('dashboard','DashboardController@index')->name('dashboard.index');
 	Route::get('lucky-find','LuckyController@showPrint')->name('lucky.find');
 	Route::get('lucky-edit','LuckyController@edit')->name('lucky.edit');
+	Route::resource('settings', 'SettingController');
 });
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
+Route::get("/test",function(){
+	
+	dd(isZawgyi("သီဟိုဠ္မွ ဉာဏ္ႀကီးရွင္သည္ အာယုဝၯနေဆးၫႊန္းစာကို ဇလြန္ေဈးေဘး ဗာဒံပင္ထက္ အဓိ႒ာန္လ်က္ ဂဃနဏဖတ္ခဲ့သည္။"));
+
+});

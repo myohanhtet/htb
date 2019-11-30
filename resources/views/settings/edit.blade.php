@@ -3,17 +3,17 @@
 @section('content')
     <section class="content-header">
         <h1>
-          {!! ($ui_config['title'] == null ? "Title":$ui_config['title']) !!}
+            Setting
         </h1>
    </section>
    <div class="content">
        @include('adminlte-templates::common.errors')
-       <div class="box box-info">
+       <div class="box box-warning">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($htb, ['route' => ['htbs.update', $htb->id], 'method' => 'patch']) !!}
+                   {!! Form::model($setting, ['route' => ['settings.update', $setting->id], 'method' => 'patch']) !!}
 
-                        @include('htbs.fields')
+                        @include('settings.fields')
 
                    {!! Form::close() !!}
                </div>
