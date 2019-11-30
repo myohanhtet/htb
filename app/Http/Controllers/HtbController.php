@@ -54,6 +54,12 @@ class HtbController extends AppBaseController
     public function store(CreateHtbRequest $request)
     {
         $input = $request->all();
+        $mya_en = [ '၀' => '1', '၁' => '1', '၂' => '2', '၃' => '3', '၄' => '4', '၅' => '5', '၆' => '6', '၇' => '7', '၈' => '8', '၉' => '9',];
+
+        $input['lucky_no'] =($input['lucky_no'] == null ? null : strtr($input['lucky_no'],$mya_en));
+
+        $input['amount'] = strtr($input['amount'],$mya_en);
+        $input['mtl_vaule'] = strtr($input['mtl_vaule'],$mya_en);
 
         $htb = $this->htbRepository->create($input);
 
