@@ -19,7 +19,7 @@
     <!-- Mtl Field -->
     <div class="form-group col-sm-12 col-lg-12">
         {!! Form::label('mtl', 'လှူဖွယ်ပစ္စည်း') !!}
-        {!! Form::textarea('mtl', null, ['class' => 'form-control','rows'=>'2']) !!}
+        {!! Form::textarea('mtl', null, ['class' => 'form-control','rows'=>'2', 'id' =>'mtl']) !!}
     </div>
     
     
@@ -41,3 +41,36 @@
         <a href="{!! route('htbs.index') !!}" class="btn btn-default">Cancel</a>
     </div>
     
+    @push('scripts')
+
+   <script type="text/javascript">
+
+    var path = "{{ route('autocomplete') }}";
+
+    $(document).ready(function() {
+        
+    $( "#mtl" ).autocomplete({
+ 
+        source: function(request, response) {
+            $.ajax({
+            url: path,
+            data: {
+                    term : request.term
+             },
+            dataType: "json",
+            success: function(data){
+               var resp = $.map(data,function(obj){
+                    return obj.mtl;
+               }); 
+ 
+               response(resp);
+            }
+        });
+    },
+    minLength: 1
+ });
+});
+
+
+</script>
+    @endpush

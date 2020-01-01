@@ -10,6 +10,8 @@ use App\Http\Requests\UpdateHtbRequest;
 use App\Models\Htb;
 use App\Models\Setting;
 use App\Repositories\HtbRepository;
+use Illuminate\Http\Request;
+
 use Flash;
 use Response;
 
@@ -162,6 +164,33 @@ class HtbController extends AppBaseController
         Flash::success('Htb deleted successfully.');
 
         return redirect(route('htbs.index'));
+    }
+
+        /**
+
+     * Show the form for creating a new resource.
+
+     *
+
+     * @return \Illuminate\Http\Response
+
+     */
+
+    public function autocomplete(Request $request)
+
+    {
+        $search = $request->get('term');
+      
+          $result = Htb::where('mtl', 'LIKE', '%'. $search. '%')->get();
+ 
+          return response()->json($result);
+
+        // $data = Htb::select('mtl');
+
+        // dd($data);
+
+        // return $data;
+
     }
 
     public function printPdf($id)
