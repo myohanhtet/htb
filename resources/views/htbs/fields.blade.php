@@ -19,7 +19,7 @@
     <!-- Mtl Field -->
     <div class="form-group col-sm-12 col-lg-12">
         {!! Form::label('mtl', 'လှူဖွယ်ပစ္စည်း') !!}
-        {!! Form::textarea('mtl', null, ['class' => 'form-control','rows'=>'2']) !!}
+        {!! Form::textarea('mtl', null, ['class' => 'form-control','rows'=>'2', 'id' =>'mtl']) !!}
     </div>
     
     
@@ -40,59 +40,37 @@
         {!! Form::submit('Save', ['class' => 'btn btn-info flat']) !!}
         <a href="{!! route('htbs.index') !!}" class="btn btn-default">Cancel</a>
     </div>
-
+    
     @push('scripts')
-    <script>
-        $( function() {
-            var donor = [
-            "ActionScript",
-            "AppleScript",
-            "Asp",
-            "BASIC",
-            "C",
-            "C++",
-            "Clojure",
-            "COBOL",
-            "ColdFusion",
-            "Erlang",
-            "Fortran",
-            "Groovy",
-            "Haskell",
-            "Java",
-            "JavaScript",
-            "Lisp",
-            "Perl",
-            "PHP",
-            "Python",
-            "Ruby",
-            "Scala",
-            "Scheme"
-            ];
 
-            // var vvv = "http://htb.test/donerlist";
-            
-            // $( "#donor" ).autocomplete({
+   <script type="text/javascript">
 
+    var path = "{{ route('autocomplete') }}";
 
-            //     source: donor
-            // });
-        } );
-
-
-        // $.get( "http://htb.test/donerlist", function( data ) {
-        //     alert(data);
-        // }, "json" );
-
-        $('#donor').typeahead({
-            source:  function (query, process) {
-            return $.get(path, { query: query }, function (data) {
-                    return process(data);
-                    console.log(data);
-                });
+    $(document).ready(function() {
+        
+    $( "#mtl" ).autocomplete({
+ 
+        source: function(request, response) {
+            $.ajax({
+            url: path,
+            data: {
+                    term : request.term
+             },
+            dataType: "json",
+            success: function(data){
+               var resp = $.map(data,function(obj){
+                    return obj.mtl;
+               }); 
+ 
+               response(resp);
             }
         });
+    },
+    minLength: 1
+ });
+});
 
 
-      </script>
-        
+</script>
     @endpush

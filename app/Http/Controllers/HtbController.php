@@ -10,6 +10,8 @@ use App\Http\Requests\UpdateHtbRequest;
 use App\Models\Htb;
 use App\Models\Setting;
 use App\Repositories\HtbRepository;
+use Illuminate\Http\Request;
+
 use Flash;
 use Response;
 
@@ -58,8 +60,8 @@ class HtbController extends AppBaseController
 
         $input['lucky_no'] =($input['lucky_no'] == null ? null : strtr($input['lucky_no'],$mya_en));
 
-        $input['amount'] = strtr($input['amount'],$mya_en);
-        $input['mtl_vaule'] = strtr($input['mtl_vaule'],$mya_en);
+        $input['amount'] = ($input['amount'] == null ? null : strtr($input['amount'],$mya_en) );
+        $input['mtl_vaule'] = ($input['mtl_vaule'] == null ? null : strtr($input['mtl_vaule'],$mya_en) );
 
         $htb = $this->htbRepository->create($input);
 
@@ -162,6 +164,27 @@ class HtbController extends AppBaseController
         Flash::success('Htb deleted successfully.');
 
         return redirect(route('htbs.index'));
+    }
+
+        /**
+
+     * Show the form for creating a new resource.
+
+     *
+
+     * @return \Illuminate\Http\Response
+
+     */
+
+    public function autocomplete(Request $request)
+
+    {
+        $search = $request->get('term');
+      
+          $result = Htb::where('mtl', 'LIKE', '%'. $search. '%')->get();
+ 
+          return response()->json($result);
+
     }
 
     public function printPdf($id)
