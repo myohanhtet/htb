@@ -186,7 +186,6 @@ class HtbController extends AppBaseController
         // Set font
         $fontname = \TCPDF_FONTS::addTTFfont('fonts/Zawgyi-One.ttf', 'TrueTypeUnicode','', 96);
         $pdf->SetFont($fontname, '', 11, '', false);
-
         $view = view('htbs.print')->with('bill', $bill);
         $html = $view->render();
         $pdf->AddPage();        

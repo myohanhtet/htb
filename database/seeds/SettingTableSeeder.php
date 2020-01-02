@@ -12,7 +12,16 @@ class SettingTableSeeder extends Seeder
      */
     public function run()
     {
-        $settings = ['title','invoice-title-two','invoice-title-three','invoice-title-one','dash-title-two','dash-title-three','dash-title-one','dash-title-four'];
+        $settings = [
+            'title',
+            'invoice-title-two',
+            'invoice-title-three',
+            'invoice-title-one',
+            'dash-title-two',
+            'dash-title-three',
+            'dash-title-one',
+            'dash-title-four'
+        ];
         
         foreach($settings as $setting){
             Setting::create([

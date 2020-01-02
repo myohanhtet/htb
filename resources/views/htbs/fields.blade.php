@@ -26,7 +26,7 @@
     <!-- Donar Field -->
     <div class="form-group col-sm-12 col-lg-12">
         {!! Form::label('donar', 'အလှူရှင်အမည်') !!}
-        {!! Form::textarea('donar', null, ['class' => 'form-control','rows'=>'2']) !!}
+        {!! Form::textarea('donar', null, ['class' => 'form-control','rows'=>'2','id'=>'donor']) !!}
     </div>
     
     <!-- Address Field -->
@@ -40,4 +40,59 @@
         {!! Form::submit('Save', ['class' => 'btn btn-info flat']) !!}
         <a href="{!! route('htbs.index') !!}" class="btn btn-default">Cancel</a>
     </div>
-    
+
+    @push('scripts')
+    <script>
+        $( function() {
+            var donor = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+            ];
+
+            // var vvv = "http://htb.test/donerlist";
+            
+            // $( "#donor" ).autocomplete({
+
+
+            //     source: donor
+            // });
+        } );
+
+
+        // $.get( "http://htb.test/donerlist", function( data ) {
+        //     alert(data);
+        // }, "json" );
+
+        $('#donor').typeahead({
+            source:  function (query, process) {
+            return $.get(path, { query: query }, function (data) {
+                    return process(data);
+                    console.log(data);
+                });
+            }
+        });
+
+
+      </script>
+        
+    @endpush

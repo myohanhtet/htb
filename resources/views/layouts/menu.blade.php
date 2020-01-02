@@ -10,4 +10,7 @@
 
 <li class="{{ Request::is('settings*') ? 'active' : '' }}">
     <a href="{!! route('settings.index') !!}"><i class="fa fa-wrench"></i><span>Settings</span></a>
+</li><li class="{{ Request::is('doners*') ? 'active' : '' }}">
+    <a href="{!! route('doners.index') !!}"><i class="fa fa-edit"></i><span>Doners</span></a>
 </li>
+

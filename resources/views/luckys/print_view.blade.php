@@ -6,9 +6,7 @@
         <h1 class="pull-right">
 
             <a class="btn btn-primary pull-right flat" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('htbs.create') !!}"> <i class="fa fa-forward" aria-hidden="true"></i> Next</a>
-           <a class="btn btn-success pull-right flat" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('htbs.index') !!}"> <i class="fa fa-backward" aria-hidden="true"></i> Back To Table</a>
-
-           
+           <a class="btn btn-success pull-right flat" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('htbs.index') !!}"> <i class="fa fa-backward" aria-hidden="true"></i> Back To Table</a>           
         </h1>
     </section>
 
