@@ -7,10 +7,11 @@
 <li class="{{ Request::is('lucky*') ? 'active' : '' }}">
     <a href="{!! route('lucky.index') !!}"><i class="fa fa-tags" aria-hidden="true"></i> <span>Lucky No</span></a>
 </li>
-
+<li class="{{ Request::is('doners*') ? 'active' : '' }}">
+    <a href="{!! route('doners.index') !!}"><i class="fa fa-edit"></i><span>Donars</span></a>
+</li>
 <li class="{{ Request::is('settings*') ? 'active' : '' }}">
     <a href="{!! route('settings.index') !!}"><i class="fa fa-wrench"></i><span>Settings</span></a>
-</li><li class="{{ Request::is('doners*') ? 'active' : '' }}">
-    <a href="{!! route('doners.index') !!}"><i class="fa fa-edit"></i><span>Doners</span></a>
 </li>
+
 

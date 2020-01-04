@@ -26,13 +26,13 @@
     <!-- Donar Field -->
     <div class="form-group col-sm-12 col-lg-12">
         {!! Form::label('donar', 'အလှူရှင်အမည်') !!}
-        {!! Form::textarea('donar', null, ['class' => 'form-control','rows'=>'2','id'=>'donor']) !!}
+        {!! Form::textarea('donar', null, ['class' => 'form-control','rows'=>'2','id'=>'donar']) !!}
     </div>
     
     <!-- Address Field -->
     <div class="form-group col-sm-12 col-lg-12">
         {!! Form::label('address', 'နေရပ်လိပ်စာ') !!}
-        {!! Form::textarea('address', null, ['class' => 'form-control','rows'=>'2']) !!}
+        {!! Form::textarea('address', null, ['class' => 'form-control','rows'=>'2','id'=> 'address']) !!}
     </div>
     
     <!-- Submit Field -->
@@ -45,15 +45,16 @@
 
    <script type="text/javascript">
 
-    var path = "{{ route('autocomplete') }}";
+    var mtlPath = "{{ route('mtlautocomplete') }}";
+    var donarPath = "{{ route('donarautocomplete') }}";
+    var addressPath = "{{ route('addressautocomplete') }}"
 
-    $(document).ready(function() {
         
     $( "#mtl" ).autocomplete({
  
         source: function(request, response) {
             $.ajax({
-            url: path,
+            url: mtlPath,
             data: {
                     term : request.term
              },
@@ -64,12 +65,53 @@
                }); 
  
                response(resp);
-            }
-        });
-    },
-    minLength: 1
- });
-});
+                }
+            });
+        },
+        minLength: 1
+     });
+
+    $( "#donar" ).autocomplete({
+ 
+        source: function(request, response) {
+            $.ajax({
+            url: donarPath,
+            data: {
+                    term : request.term
+             },
+            dataType: "json",
+            success: function(data){
+               var resp = $.map(data,function(obj){
+                    return obj.name;
+               }); 
+ 
+               response(resp);
+                }
+            });
+        },
+        minLength: 1
+     });
+
+    $( "#address" ).autocomplete({
+ 
+        source: function(request, response) {
+            $.ajax({
+            url: addressPath,
+            data: {
+                    term : request.term
+             },
+            dataType: "json",
+            success: function(data){
+               var resp = $.map(data,function(obj){
+                    return obj.address;
+               }); 
+ 
+               response(resp);
+                }
+            });
+        },
+        minLength: 1
+     });
 
 
 </script>

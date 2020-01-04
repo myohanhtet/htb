@@ -36,10 +36,8 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-<<<<<<< HEAD
+Route::get('mtlautocomplete', 'HtbController@mtlautocomplete')->name('mtlautocomplete');
+Route::get('donarautocomplete', 'HtbController@donarautocomplete')->name('donarautocomplete');
+Route::get('addressautocomplete', 'HtbController@addressautocomplete')->name('addressautocomplete');
 
 
-
-=======
-Route::get('autocomplete', 'HtbController@autocomplete')->name('autocomplete');
->>>>>>> 638b0819b2e0c9f09be6b8d21c3d0dde71bb9da8

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateHtbRequest;
 use App\Http\Requests\UpdateHtbRequest;
 use App\Models\Htb;
+use App\Models\Doner;
 use App\Models\Setting;
 use App\Repositories\HtbRepository;
 use Illuminate\Http\Request;
@@ -176,12 +177,54 @@ class HtbController extends AppBaseController
 
      */
 
-    public function autocomplete(Request $request)
+    public function mtlautocomplete(Request $request)
 
     {
-        $search = $request->get('term');
+            $search = $request->get('term');
       
           $result = Htb::where('mtl', 'LIKE', '%'. $search. '%')->get();
+ 
+          return response()->json($result);
+
+    }
+
+       /**
+
+     * Show the form for creating a new resource.
+
+     *
+
+     * @return \Illuminate\Http\Response
+
+     */
+
+    public function donarautocomplete(Request $request)
+
+    {
+            $search = $request->get('term');
+      
+          $result = Doner::where('name', 'LIKE', '%'. $search. '%')->get();
+ 
+          return response()->json($result);
+
+    }
+
+       /**
+
+     * Show the form for creating a new resource.
+
+     *
+
+     * @return \Illuminate\Http\Response
+
+     */
+
+    public function addressautocomplete(Request $request)
+
+    {
+            $search = $request->get('term');
+      
+          $result = Doner::where('address', 'LIKE', '%'. $search. '%')->get();
  
           return response()->json($result);
 

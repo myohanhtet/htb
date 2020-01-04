@@ -54,6 +54,40 @@ class HtbDataTable extends DataTable
                     ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
                 ],
+                // 'initComplete' => "function () {
+                //     this.api().columns([2]).every( function () {
+                //                             var column = this;
+                //                             var input = $('<input></input>')
+                //                             .appendTo( $(column.header()) )
+                //                             .on( 'change', function () {
+                //                                 column.search($(this).val(), false,
+                //      false, true).draw();
+                //                             } );
+
+                //                             input.addClass('form-control form-control-sm');
+                //                             } );
+                //                      }",
+
+                'initComplete' => "function () {
+                this.api().columns([0,2]).every( function () {
+                    var column = this;
+                    var input = $('<input></input>')
+                        .appendTo( $(column.header()).empty() )
+                        .on( 'change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+     
+                            column
+                                .search( val ? '^'+val+'$' : '', true, false )
+                                .draw();
+                        } );
+     
+                        input.addClass('form-control form-control-sm');
+                                        
+                } );
+            }",
+
             ]);
     }
 
