@@ -101,6 +101,7 @@ class HtbDataTable extends DataTable
         return [
             'id',
             'lucky_no',
+            'win_name',
             'amount',
             'mtl',
             'mtl_vaule',

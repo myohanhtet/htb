@@ -34,7 +34,8 @@ class Htb extends Model
         'mtl',
         'mtl_vaule',
         'donar',
-        'address'
+        'address',
+        'win_name',
     ];
 
     /**

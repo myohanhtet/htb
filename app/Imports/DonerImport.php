@@ -20,8 +20,8 @@ class DonerImport implements ToCollection,WithHeadings
         foreach ($rows as $row) {
             // dd($row[5]);
             Doner::create([
-                'name'=> zg2uni($row[0]),
-                'address' => zg2uni($row[1]),
+                'name'=> $row[0],
+                'address' => $row[1],
                 // 'email' => $row['Email'],
                 // 'phone' => $row['Phone']
             ]);

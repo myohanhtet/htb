@@ -96,6 +96,10 @@ class LuckyController extends Controller
     {
         $luckyNo = request()->lucky_no;
 
+        if (request()->win_name) {
+           $winname = Htb::where('lucky_no','=', $luckyNo)->update(['win_name'=> request()->win_name]);
+        }
+
         $lucky = Htb::where('lucky_no','=',$luckyNo)->get();
 
         $filename = $this->printPdf($lucky,$luckyNo);
@@ -121,9 +125,17 @@ class LuckyController extends Controller
         // Set font
         $fontname = \TCPDF_FONTS::addTTFfont('fonts/Zawgyi-One.ttf', 'TrueTypeUnicode','', 96);
         $pdf->SetFont($fontname, '', 11, '', false);
+        $win_name = Htb::where('lucky_no',$luckyNo)->first();
+        if($win_name == null){
+
+            $win_name = "None";
+        } else {
+            $win_name = $win_name->win_name;
+        }
 
         $total = [];
         $total['number'] = $luckyNo;
+        $total['winname'] = $win_name;
         $total['amount'] = Htb::where('lucky_no','=',$luckyNo)
             ->sum('amount');
         $total['mtl_value'] = Htb::where('lucky_no','=',$luckyNo)
