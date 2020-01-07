@@ -21,6 +21,10 @@ class SettingController extends AppBaseController
     public function __construct(SettingRepository $settingRepo)
     {
         $this->settingRepository = $settingRepo;
+        $this->middleware('permission:view-setting');
+        $this->middleware('permission:create-setting',['only'=>['create','store']]);
+        $this->middleware('permission:edid-setting',['only'=>['edit','update']]);
+        $this->middleware('permission:delete-setting',['only'=> ['destory']]);
     }
 
     /**
@@ -32,10 +36,6 @@ class SettingController extends AppBaseController
     public function index(SettingDataTable $settingDataTable)
     {
         return $settingDataTable->render('settings.index');
-        $this->middleware('permission:view-setting');
-        $this->middleware('permission:create-setting',['only'=>['create','store']]);
-        $this->middleware('permission:edid-setting',['only'=>['edit','update']]);
-        $this->middleware('permission:delete-setting',['only'=> ['destory']]);
     }
 
     /**

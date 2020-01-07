@@ -64,6 +64,8 @@ class UserController extends AppBaseController
 
         $user = $this->userRepository->create($input);
 
+        $user->syncRoles($request->input('role'));
+
         Flash::success('User saved successfully.');
 
         return redirect(route('users.index'));
@@ -138,6 +140,7 @@ class UserController extends AppBaseController
         }
 
         $user = $this->userRepository->update($input, $id);
+        $user->syncRoles($request->input('role'));
 
         Flash::success('User updated successfully.');
 

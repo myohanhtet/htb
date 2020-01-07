@@ -9,7 +9,9 @@ use App\Http\Requests\UpdatePermissionRequest;
 use App\Repositories\PermissionRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Role;
 use Response;
+use Spatie\Permission\Models\Permission;
 
 class PermissionController extends AppBaseController
 {
@@ -19,6 +21,7 @@ class PermissionController extends AppBaseController
     public function __construct(PermissionRepository $permissionRepo)
     {
         $this->permissionRepository = $permissionRepo;
+        $this->roleName = Role::pluck('name','id'); 
         $this->middleware('permission:view-permission');
         $this->middleware('permission:create-permission',['only'=>['create','store']]);
         $this->middleware('permission:edid-permission',['only'=>['edit','update']]);
@@ -43,7 +46,7 @@ class PermissionController extends AppBaseController
      */
     public function create()
     {
-        return view('permissions.create');
+        return view('permissions.create',['roles'=>$this->roleName]);
     }
 
     /**
@@ -55,9 +58,14 @@ class PermissionController extends AppBaseController
      */
     public function store(CreatePermissionRequest $request)
     {
-        $input = $request->all();
+        // $input = $request->all();
+        // $permission = $this->permissionRepository->create($input);
 
-        $permission = $this->permissionRepository->create($input);
+        $permission = new Permission();
+        $permission->name = $request->name;
+        $permission->guard_name = $request->guard_name;
+        $permission->save();
+        $permission->syncRoles(array_keys($request->roles));
 
         Flash::success('Permission saved successfully.');
 
@@ -76,12 +84,13 @@ class PermissionController extends AppBaseController
         $permission = $this->permissionRepository->findWithoutFail($id);
 
         if (empty($permission)) {
-            Flash::error('Permission not found');
 
+            Flash::error('Permission not found');
             return redirect(route('permissions.index'));
+
         }
 
-        return view('permissions.show')->with('permission', $permission);
+        return view('permissions.show',['permission'=>$permission,'roles'=>$this->roleName]);
     }
 
     /**
@@ -96,6 +105,7 @@ class PermissionController extends AppBaseController
         $permission = $this->permissionRepository->findWithoutFail($id);
 
         if (empty($permission)) {
+
             Flash::error('Permission not found');
 
             return redirect(route('permissions.index'));
@@ -114,7 +124,7 @@ class PermissionController extends AppBaseController
      */
     public function update($id, UpdatePermissionRequest $request)
     {
-        $permission = $this->permissionRepository->findWithoutFail($id);
+        $permission = Permission::findById($id);
 
         if (empty($permission)) {
             Flash::error('Permission not found');
@@ -122,7 +132,11 @@ class PermissionController extends AppBaseController
             return redirect(route('permissions.index'));
         }
 
-        $permission = $this->permissionRepository->update($request->all(), $id);
+        $permission->name = $request->name;
+        $permission->guard_name = $request->guard_name;
+        $permission->update();
+        
+        $permission->syncRoles(array_keys($request->roles));
 
         Flash::success('Permission updated successfully.');
 

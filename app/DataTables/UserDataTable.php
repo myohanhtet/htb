@@ -18,7 +18,12 @@ class UserDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'users.datatables_actions');
+        return $dataTable->addColumn('action', 'users.datatables_actions')
+                        ->addColumn('roleName', function($query){
+                            return $query->roles->map(function($role){
+                                return $role->name;
+                            })->implode(',');
+                        });
     }
 
     /**
@@ -29,7 +34,7 @@ class UserDataTable extends DataTable
      */
     public function query(User $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with('roles');
     }
 
     /**
@@ -66,6 +71,7 @@ class UserDataTable extends DataTable
         return [
             'name',
             'email',
+            'roleName',
             // 'email_verified_at',
             // 'password',
             // 'remember_token'

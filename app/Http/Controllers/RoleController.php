@@ -107,6 +107,7 @@ class RoleController extends AppBaseController
         $role = $this->roleRepository->findWithoutFail($id);
 
         if (empty($role)) {
+            
             Flash::error('Role not found');
 
             return redirect(route('roles.index'));
