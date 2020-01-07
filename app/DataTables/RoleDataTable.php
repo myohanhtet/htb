@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\User;
+use App\Models\Role;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class UserDataTable extends DataTable
+class RoleDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,16 +18,16 @@ class UserDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'users.datatables_actions');
+        return $dataTable->addColumn('action', 'roles.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\User $model
+     * @param \App\Models\Role $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query(Role $model)
     {
         return $model->newQuery();
     }
@@ -65,10 +65,7 @@ class UserDataTable extends DataTable
     {
         return [
             'name',
-            'email',
-            // 'email_verified_at',
-            // 'password',
-            // 'remember_token'
+            'guard_name'
         ];
     }
 
@@ -79,6 +76,6 @@ class UserDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'usersdatatable_' . time();
+        return 'rolesdatatable_' . time();
     }
 }

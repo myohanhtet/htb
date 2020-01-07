@@ -22,24 +22,26 @@
     {!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    <label for="pet-select">Choose a Role:</label>
+    <select id="pet-select" name="role" class="form-control">
+        @foreach ($roles as $role)
+            <option
+            @php
+                if (isset($user) && preg_replace('/[^A-Za-z0-9\-]/','',$user->getRoleNames()) === $role) {
+                   echo "selected";
+                }
+            @endphp 
+            value="{{ $role }}" >{{ ucfirst($role) }}</option>
+        @endforeach
+    </select>
+</div>
+
 <!-- Remember Token Field -->
 <!-- <div class="form-group col-sm-6">
     {!! Form::label('remember_token', 'Remember Token:') !!}
     {!! Form::text('remember_token', null, ['class' => 'form-control']) !!}
 </div> -->
-
-<!-- Password Confirm Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('password_confirmation', 'Confirm Password:') !!}
-    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
-</div>
-
-
-<div class="form-group col-sm-6">
-    {!! Form::label('role', 'Role:') !!}
-    {!! Form::text('role', null, ['class' => 'form-control']) !!}
-</div>
-
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

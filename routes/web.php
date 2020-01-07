@@ -29,15 +29,18 @@ Route::middleware('auth')->group(function () {
 	Route::resource('settings', 'SettingController');
 	Route::resource('doners', 'DonerController');
 	Route::post('doners/upload','DonerController@upload')->name('doner.upload');
-	Route::get('donerlist','DonerController@ajax')->name('doner.ajax');
+	Route::get('mtlautocomplete', 'HtbController@mtlautocomplete')->name('mtlautocomplete');
+	Route::get('donarautocomplete', 'HtbController@donarautocomplete')->name('donarautocomplete');
+	Route::get('addressautocomplete', 'HtbController@addressautocomplete')->name('addressautocomplete');
+	Route::post('settings/truncate','SettingController@truncate')->name('setting.truncate');
 });
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('mtlautocomplete', 'HtbController@mtlautocomplete')->name('mtlautocomplete');
-Route::get('donarautocomplete', 'HtbController@donarautocomplete')->name('donarautocomplete');
-Route::get('addressautocomplete', 'HtbController@addressautocomplete')->name('addressautocomplete');
+Route::resource('roles', 'RoleController');
 
+Route::resource('permissions', 'PermissionController');
 
+Route::resource('users', 'UserController');

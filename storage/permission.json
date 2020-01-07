@@ -1,0 +1,98 @@
+[
+    {
+        "name" : "view-master-data",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "edit-master-data",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "create-master-data",
+        "guard_name" : "web"
+    },
+   {
+        "name" : "delete-master-data",
+        "guard_name" : "web"
+   },
+   {
+        "name" : "view-donar",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "edit-donar",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "create-donar",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "delete-donar",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "view-role",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "edit-role",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "create-role",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "delete-role",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "view-permission",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "edit-permission",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "create-permission",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "delete-permission",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "view-setting",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "edit-setting",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "create-setting",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "delete-setting",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "view-user",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "edit-user",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "create-user",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "delete-user",
+        "guard_name" : "web"
+    }
+]

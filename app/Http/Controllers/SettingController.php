@@ -9,6 +9,8 @@ use App\Http\Requests\UpdateSettingRequest;
 use App\Repositories\SettingRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Doner;
+use App\Models\Htb;
 use Response;
 
 class SettingController extends AppBaseController
@@ -30,6 +32,10 @@ class SettingController extends AppBaseController
     public function index(SettingDataTable $settingDataTable)
     {
         return $settingDataTable->render('settings.index');
+        $this->middleware('permission:view-setting');
+        $this->middleware('permission:create-setting',['only'=>['create','store']]);
+        $this->middleware('permission:edid-setting',['only'=>['edit','update']]);
+        $this->middleware('permission:delete-setting',['only'=> ['destory']]);
     }
 
     /**
@@ -90,7 +96,7 @@ class SettingController extends AppBaseController
     public function edit($id)
     {
         $setting = $this->settingRepository->findWithoutFail($id);
-        
+
         if (empty($setting)) {
             Flash::error('Setting not found');
 
@@ -145,6 +151,41 @@ class SettingController extends AppBaseController
         $this->settingRepository->delete($id);
 
         Flash::success('Setting deleted successfully.');
+
+        return redirect(route('settings.index'));
+    }
+
+    public function truncate()
+    {
+
+        if (request()->masterdata && request()->donarlist == null) {
+
+            Htb::truncate();
+
+            Flash::success('Master data truncate successfully');
+
+            return redirect(route('settings.index'));
+
+        } elseif (request()->donarlist && request()->masterdata == null) {
+
+            Doner::truncate();
+            
+            Flash::success('Donar List truncate successfully');
+
+            return redirect(route('settings.index'));
+
+        } elseif (request()->masterdata || request()->donarlist) {
+
+            Htb::truncate();
+
+            Doner::truncate();
+
+            Flash::success('Master Data and Donar List truncate successfully');
+
+            return redirect(route('settings.index'));
+        }
+
+        Flash::error('Please tick this checkbox if you want to truncate tabe');
 
         return redirect(route('settings.index'));
     }

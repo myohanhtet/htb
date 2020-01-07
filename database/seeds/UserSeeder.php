@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -11,20 +13,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-    	DB::table('users')->insert([
-            'name' => "Admin",
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('123456'),
-            'created_at' => date('Y-m-d'),
-            'updated_at' => date('Y-m-d'),
+    	$superadmin = User::create([
+            'name' => 'SuperUser',
+            'email' => 'superuser@gmail.com',
+            'password' => Hash::make('12345678')
         ]);
-
-        DB::table('users')->insert([
-            'name' => "Kovida",
-            'email' => 'ookovida@gmail.com',
-            'password' => bcrypt('095044084'),
-            'created_at' => date('Y-m-d'),
-            'updated_at' => date('Y-m-d'),
-        ]);
+        $superadmin->assignRole('superuser');
     }
 }

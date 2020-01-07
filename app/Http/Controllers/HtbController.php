@@ -24,6 +24,10 @@ class HtbController extends AppBaseController
     public function __construct(HtbRepository $htbRepo)
     {
         $this->htbRepository = $htbRepo;
+        $this->middleware('permission:view-master-data');
+        $this->middleware('permission:create-master-data',['only'=>['create','store']]);
+        $this->middleware('permission:edid-master-data',['only'=>['edit','update']]);
+        $this->middleware('permission:delete-master-data',['only'=> ['destory']]);
     }
 
     /**

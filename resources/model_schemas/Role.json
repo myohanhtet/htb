@@ -1,7 +1,7 @@
 [
     {
         "name": "id",
-        "dbType": "integer,true,true",
+        "dbType": "bigInteger,true,true",
         "htmlType": null,
         "validations": null,
         "searchable": false,
@@ -24,46 +24,10 @@
         "inView": true
     },
     {
-        "name": "email",
+        "name": "guard_name",
         "dbType": "string,191",
         "htmlType": "text",
         "validations": "required",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "email_verified_at",
-        "dbType": "datetime:nullable",
-        "htmlType": "date",
-        "validations": null,
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "password",
-        "dbType": "string,191",
-        "htmlType": "text",
-        "validations": "required",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true,
-        "inView": true
-    },
-    {
-        "name": "remember_token",
-        "dbType": "string,100:nullable",
-        "htmlType": "text",
-        "validations": null,
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -94,5 +58,13 @@
         "inForm": false,
         "inIndex": false,
         "inView": false
+    },
+    {
+        "type": "relation",
+        "relation": "1t1,ModelHasRole"
+    },
+    {
+        "type": "relation",
+        "relation": "mtm,Permission,role_has_permissions"
     }
 ]

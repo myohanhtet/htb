@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\UserDataTable;
-use App\Http\Controllers\AppBaseController;
 use App\Http\Requests;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Models\User;
 use App\Repositories\UserRepository;
 use Flash;
-use Illuminate\Http\Request;
+use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Hash;
 use Response;
+use Spatie\Permission\Models\Role;
 
 class UserController extends AppBaseController
 {
@@ -21,6 +21,11 @@ class UserController extends AppBaseController
     public function __construct(UserRepository $userRepo)
     {
         $this->userRepository = $userRepo;
+        $this->roleName = Role::pluck('name');
+        $this->middleware('permission:view-user');
+        $this->middleware('permission:create-user',['only'=>['create','store']]);
+        $this->middleware('permission:edid-user',['only'=>['edit','update']]);
+        $this->middleware('permission:delete-user',['only'=> ['destory']]);
     }
 
     /**
@@ -41,7 +46,7 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        return view('users.create');
+        return view('users.create',['roles' => $this->roleName ]);
     }
 
     /**
@@ -55,11 +60,12 @@ class UserController extends AppBaseController
     {
         $input = $request->all();
 
-        $input['password'] = bcrypt($request->input('password'));
+        $input['password'] = Hash::make($request->input('password'));
 
         $user = $this->userRepository->create($input);
 
         Flash::success('User saved successfully.');
+
         return redirect(route('users.index'));
     }
 
@@ -93,14 +99,16 @@ class UserController extends AppBaseController
     public function edit($id)
     {
         $user = $this->userRepository->findWithoutFail($id);
-
+        
         if (empty($user)) {
             Flash::error('User not found');
 
             return redirect(route('users.index'));
         }
 
-        return view('users.edit')->with('user', $user);
+
+
+        return view('users.edit',['roles'=>$this->roleName ,'user'=>$user]);
     }
 
     /**
@@ -123,10 +131,10 @@ class UserController extends AppBaseController
 
         $input = $request->all();
 
-        if (empty($input['password'])) {
-            unset($input['password']);
+        if ($input['password']) {
+            $input['password'] = Hash::make($input['password']);
         } else {
-            $input['password'] = bcrypt($request->input('password'));
+            $input['password'] = $user->password;
         }
 
         $user = $this->userRepository->update($input, $id);
@@ -158,22 +166,5 @@ class UserController extends AppBaseController
         Flash::success('User deleted successfully.');
 
         return redirect(route('users.index'));
-    }
-
-
-    public function actionlist(Request $request)
-    {
-
-        $action = trim($request->q);
-
-        $data = User::where('name','LIKE','%'. $action . '%')->take(10)->get();
-
-        $result = array();
-
-        foreach ($data as $key => $v) {
-            $result[] = [ 'id' => $v->id, 'value' => $v->name , 'text' => $v->name];
-        }
-
-        return Response::json($result);
     }
 }

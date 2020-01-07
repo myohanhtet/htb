@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Project;
-use Eloquent as Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Class User
  * @package App\Models
- * @version November 30, 2018, 8:53 am UTC
+ * @version January 6, 2020, 8:24 pm +0630
  *
  * @property string name
  * @property string email
@@ -18,10 +17,9 @@ use Illuminate\Notifications\Notifiable;
  * @property string password
  * @property string remember_token
  */
-
-class User extends Authenticatable {
-
-    use Notifiable;
+class User extends Authenticatable
+{
+    use Notifiable,HasRoles;
 
     public $table = 'users';
     
@@ -33,7 +31,6 @@ class User extends Authenticatable {
     public $fillable = [
         'name',
         'email',
-        'roll',
         'email_verified_at',
         'password',
         'remember_token'
@@ -48,7 +45,7 @@ class User extends Authenticatable {
         'id' => 'integer',
         'name' => 'string',
         'email' => 'string',
-        'roll' => 'integer',
+        'email_verified_at' => 'datetime',
         'password' => 'string',
         'remember_token' => 'string'
     ];
@@ -59,9 +56,10 @@ class User extends Authenticatable {
      * @var array
      */
     public static $rules = [
-            'name' => 'required_without:password|string|max:255',
-            'email' => 'string|email|max:255|unique:users,email',
-            'password' => 'required_without:name|string|min:6|confirmed',
+        'name' => 'required',
+        'email' => 'required',
+        // 'password' => 'required'
     ];
+
     
 }

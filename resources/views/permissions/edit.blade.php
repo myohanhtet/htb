@@ -2,20 +2,18 @@
 
 @section('content')
     <section class="content-header">
-        <div class="box box-warning">
-            <div class="box-body">
-              @include('luckys.search')
-            </div>
-        </div>
+        <h1>
+            Permission
+        </h1>
    </section>
    <div class="content">
        @include('adminlte-templates::common.errors')
-       <div class="box box-warning">
+       <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($htb, ['route' => ['htbs.update', $htb->id], 'method' => 'patch']) !!}
+                   {!! Form::model($permission, ['route' => ['permissions.update', $permission->id], 'method' => 'patch']) !!}
 
-                        @include('luckys.fields')
+                        @include('permissions.fields')
 
                    {!! Form::close() !!}
                </div>

@@ -23,6 +23,10 @@ class DonerController extends AppBaseController
     public function __construct(DonerRepository $donerRepo)
     {
         $this->donerRepository = $donerRepo;
+        $this->middleware('permission:view-donar');
+        $this->middleware('permission:create-donar',['only'=>['create','store']]);
+        $this->middleware('permission:edid-donar',['only'=>['edit','update']]);
+        $this->middleware('permission:delete-donar',['only'=> ['destory']]);
     }
 
     /**
