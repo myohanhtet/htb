@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
 use Illuminate\Http\Request;
 use App\Models\Htb;
 
 
-class DashboardController extends Controller
+class DashboardController extends \App\Http\Controllers\Controller
 {
     /**
      * Display a listing of the resource.

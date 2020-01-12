@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
 use Flash;
 use Response;
@@ -25,7 +25,7 @@ class DonerController extends AppBaseController
         $this->donerRepository = $donerRepo;
         $this->middleware('permission:view-donar');
         $this->middleware('permission:create-donar',['only'=>['create','store']]);
-        $this->middleware('permission:edid-donar',['only'=>['edit','update']]);
+        $this->middleware('permission:edit-donar',['only'=>['edit','update']]);
         $this->middleware('permission:delete-donar',['only'=> ['destory']]);
     }
 
@@ -157,20 +157,13 @@ class DonerController extends AppBaseController
         return redirect(route('doners.index'));
     }
 
-    public function upload(Request $request){
-
-        if ($request->hasFile('donerlist')) {
-            Excel::import(new DonerImport,$request->file('donerlist'));
-            return "Success";
-        }
-        
-    }
-
-    public function ajax(Request $request){
-        // $donor = Doner::get();
-        $data = Doner::select("name")
-                ->where("name","LIKE","%{$request->input('query')}%")
-                ->get();
-        return response()->json($data);
+    public function upload(Request $request)
+    {
+    
+            if ($request->hasFile('donerlist')) {
+                Excel::import(new DonerImport,$request->file('donerlist'));
+                return "Success";
+            }
+            
     }
 }

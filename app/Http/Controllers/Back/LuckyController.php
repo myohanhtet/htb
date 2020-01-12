@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
 use Illuminate\Http\Request;
 use App\Models\Htb;
 
-class LuckyController extends Controller
+class LuckyController extends \App\Http\Controllers\Controller
 {
     /**
      * Display a listing of the resource.
@@ -61,9 +61,10 @@ class LuckyController extends Controller
         $htb = Htb::find(request()->id);
 
         if (empty($htb)) {
-            Flash::error('Htb not found');
 
-            return redirect(route('htbs.index'));
+            alert()->error('ID Not Found', 'Oops!');
+
+            return redirect()->back();
         }
 
         return view('luckys.edit')->with('htb', $htb);
@@ -140,6 +141,7 @@ class LuckyController extends Controller
             ->sum('amount');
         $total['mtl_value'] = Htb::where('lucky_no','=',$luckyNo)
             ->sum('mtl_vaule');
+        $total['mtl_amount'] = $total['amount'] + $total['mtl_value'];
 
         $view = view('luckys.print',['luckys' => $lucky,'total' => $total]);
         $html = $view->render();

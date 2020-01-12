@@ -33,7 +33,7 @@
     <link rel="manifest" href="{{ url('image/favicon/site.webmanifest') }}">
     <link rel="mask-icon" href="{{ url('image/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 <style>
@@ -46,6 +46,7 @@
 </head>
 
 <body class="skin-yellow sidebar-mini sidebar-collapse">
+@include('sweet::alert')
 @if (!Auth::guest())
     <div class="wrapper">
         <!-- Main Header -->
@@ -136,7 +137,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{!! url('/') !!}">
-                    InfyOm Generator
+                    Myo Han Htet
                 </a>
             </div>
 

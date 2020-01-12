@@ -10,12 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-//Auth::routes();
-
-Route::middleware('auth')->group(function () {
-
 	Route::resource('htbs', 'HtbController');
 	Route::get('print','HtbController@printPdf');
 	Route::resource('lucky','LuckyController');
@@ -31,9 +25,4 @@ Route::middleware('auth')->group(function () {
 	Route::post('settings/truncate','SettingController@truncate')->name('setting.truncate');
 	Route::resource('roles', 'RoleController');
 	Route::resource('permissions', 'PermissionController');
-	Route::resource('users', 'UserController');
-});
-
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+	Route::resource('users', 'UserController'); 

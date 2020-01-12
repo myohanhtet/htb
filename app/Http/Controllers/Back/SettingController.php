@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Back;
 
 use App\DataTables\SettingDataTable;
 use App\Http\Requests;
@@ -162,7 +162,7 @@ class SettingController extends AppBaseController
 
             Htb::truncate();
 
-            Flash::success('Master data truncate successfully');
+            alert()->success('Master data truncate successfully','Success');
 
             return redirect(route('settings.index'));
 
@@ -170,7 +170,7 @@ class SettingController extends AppBaseController
 
             Doner::truncate();
             
-            Flash::success('Donar List truncate successfully');
+            alert()->success('Donar List truncate successfully','Success');
 
             return redirect(route('settings.index'));
 
@@ -180,12 +180,12 @@ class SettingController extends AppBaseController
 
             Doner::truncate();
 
-            Flash::success('Master Data and Donar List truncate successfully');
+            alert()->success('Master Data and Donar List truncate successfully','Success');
 
             return redirect(route('settings.index'));
         }
 
-        Flash::error('Please tick this checkbox if you want to truncate tabe');
+        alert()->error('Please tick this checkbox if you want to truncate tabe','Error');
 
         return redirect(route('settings.index'));
     }

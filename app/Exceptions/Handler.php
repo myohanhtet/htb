@@ -46,6 +46,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+
+            alert()->error('You do not have the required authorization.','Sorry');
+            return redirect()->back();
+        }
         return parent::render($request, $exception);
     }
 }

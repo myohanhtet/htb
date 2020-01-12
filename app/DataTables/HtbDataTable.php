@@ -54,24 +54,11 @@ class HtbDataTable extends DataTable
                     ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
                 ],
-                // 'initComplete' => "function () {
-                //     this.api().columns([2]).every( function () {
-                //                             var column = this;
-                //                             var input = $('<input></input>')
-                //                             .appendTo( $(column.header()) )
-                //                             .on( 'change', function () {
-                //                                 column.search($(this).val(), false,
-                //      false, true).draw();
-                //                             } );
-
-                //                             input.addClass('form-control form-control-sm');
-                //                             } );
-                //                      }",
 
                 'initComplete' => "function () {
                 this.api().columns([0,2]).every( function () {
                     var column = this;
-                    var input = $('<input></input>')
+                    var input = $('<input style=\"width:50px;height:25px\"></input>')
                         .appendTo( $(column.header()).empty() )
                         .on( 'change', function () {
                             var val = $.fn.dataTable.util.escapeRegex(
@@ -101,7 +88,7 @@ class HtbDataTable extends DataTable
         return [
             'id',
             'lucky_no',
-            'win_name',
+            // 'win_name',
             'amount',
             'mtl',
             'mtl_vaule',

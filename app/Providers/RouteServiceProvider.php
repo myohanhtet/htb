@@ -36,8 +36,10 @@ class RouteServiceProvider extends ServiceProvider
     public function map()
     {
         $this->mapApiRoutes();
+        $this->mapBackRoutes();
+        $this->mapFrontRoutes();
 
-        $this->mapWebRoutes();
+        // $this->mapWebRoutes();
 
         //
     }
@@ -54,6 +56,27 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
+    }
+
+    protected function mapBackRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace . '\\Back')
+            ->group(function () {
+                Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+                Route::post('/login', 'Auth\LoginController@login');
+                Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+                Route::prefix('admin')->group(function () {
+                    Route::middleware('auth')->group(base_path('routes/back.php'));
+                });
+            });
+    }
+
+    protected function mapFrontRoutes()
+    {
+        Route::middleware(['web'])
+            ->namespace($this->namespace . '\\Front')
+            ->group(base_path('routes/front.php'));
     }
 
     /**

@@ -35,7 +35,7 @@
                 <span class="info-box-text">ငွေပဒေသာစုစုပေါင်း</span>
                 <span class="info-box-number">                   
                     
-                    {!! strtr($sumData['value'],$en_mya) !!}
+                    {!! strtr(number_format($sumData['value']),$en_mya) !!}
                   
                 </span>
               </div>
@@ -49,7 +49,7 @@
               <span class="info-box-icon bg-red"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">လှူဖွယ်ပစ္စည်းတန်ဖိုး</span>
-                <span class="info-box-number">{!! strtr($sumData['mtlvalue'],$en_mya) !!}</span>
+                <span class="info-box-number">{!! strtr(number_format($sumData['mtlvalue']),$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -61,7 +61,7 @@
               <span class="info-box-icon bg-green"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">နှစ်ရပ်ပေါင်း တန်ဖိုး</span>
-                <span class="info-box-number">{!! strtr($sumData['totalvalue'],$en_mya) !!}</span>
+                <span class="info-box-number">{!! strtr(number_format($sumData['totalvalue']),$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
