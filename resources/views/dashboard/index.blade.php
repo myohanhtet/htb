@@ -32,7 +32,7 @@
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-yellow"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">ငွေပဒေသာစုစုပေါင်း</span>
+                <span class="info-box-text">{{ __('field.total amount') }}</span>
                 <span class="info-box-number">                   
                     
                     {!! strtr(number_format($sumData['value']),$en_mya) !!}
@@ -48,7 +48,7 @@
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-red"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">လှူဖွယ်ပစ္စည်းတန်ဖိုး</span>
+                <span class="info-box-text">{{ __('field.material value') }}</span>
                 <span class="info-box-number">{!! strtr(number_format($sumData['mtlvalue']),$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
@@ -60,7 +60,7 @@
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-green"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">နှစ်ရပ်ပေါင်း တန်ဖိုး</span>
+                <span class="info-box-text">{{ __('field.all total') }}</span>
                 <span class="info-box-number">{!! strtr(number_format($sumData['totalvalue']),$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
@@ -73,7 +73,7 @@
               <!-- Apply any bg-* class to to the icon to color it -->
               <span class="info-box-icon bg-aqua"><i class="fa fa-users" aria-hidden="true"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">အလှူရှင်ပေါင်း</span>
+                <span class="info-box-text">{{ __('field.donars total') }}</span>
                 <span class="info-box-number">{!! strtr($sumData['totaldonar'],$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->

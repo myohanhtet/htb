@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Back;
 
 use App\DataTables\HtbDataTable;
 use App\Http\Controllers\AppBaseController;
-use App\Http\Requests;
 use App\Http\Requests\CreateHtbRequest;
 use App\Http\Requests\UpdateHtbRequest;
 use App\Models\Htb;
@@ -12,7 +11,6 @@ use App\Models\Doner;
 use App\Models\Setting;
 use App\Repositories\HtbRepository;
 use Illuminate\Http\Request;
-
 use Flash;
 use Response;
 
@@ -61,7 +59,8 @@ class HtbController extends AppBaseController
     public function store(CreateHtbRequest $request)
     {
         $input = $request->all();
-        $mya_en = [ '၀' => '1', '၁' => '1', '၂' => '2', '၃' => '3', '၄' => '4', '၅' => '5', '၆' => '6', '၇' => '7', '၈' => '8', '၉' => '9',];
+
+        $mya_en = Config('mmconverter.number.mya_en');
 
         $input['lucky_no'] =($input['lucky_no'] == null ? null : strtr($input['lucky_no'],$mya_en));
 

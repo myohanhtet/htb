@@ -1,5 +1,6 @@
+@php $locels = \Session::get('locale'); @endphp
 <!DOCTYPE html>
-<html lang="qz-MM">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <title>Htantabin Monastery</title>
@@ -66,6 +67,14 @@
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
+
+                    <li class="@if($locels != 'mm') active @endif ">
+                        <a href="{{ url('locale/en') }}" ><img src="{{ url('image/en.png') }}" width="20"> EN</a>
+                    </li>
+
+                    <li class="@if($locels == 'mm') active @endif ">
+                        <a href="{{ url('locale/mm') }}" ><img src="{{ url('image/mm.png') }}" width="20"> ဗမာ</a>
+                    </li>
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->

@@ -5,7 +5,7 @@
         <h1>
            {!! ($ui_config['title'] == null ? "Title" :$ui_config['title']) !!}
         </h1><br>
-        <a href="{{ route('htbs.index') }}" class="btn btn-success flat"> <i class="fa fa-backward" aria-hidden="true"></i> Back To Table</a>
+        <a href="{{ route('htbs.index') }}" class="btn btn-success flat"> <i class="fa fa-backward" aria-hidden="true"></i> {{ __('field.back to table') }}</a>
     </section>
     <div class="content">
         @include('adminlte-templates::common.errors')

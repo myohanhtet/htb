@@ -1,44 +1,45 @@
+
 <!-- Lucky No Field -->
 <div class="form-group col-sm-4">
-        {!! Form::label('lucky_no', 'မဲနံပါတ်') !!}
+        {!! Form::label('lucky_no',__('field.lucky no')) !!}
         {!! Form::text('lucky_no', null, ['class' => 'form-control']) !!}
     </div>
     
     <!-- Amount Field -->
     <div class="form-group col-sm-4">
-        {!! Form::label('amount', 'ငွေပဒေသာ') !!}
+        {!! Form::label('amount', __('field.amount')) !!}
         {!! Form::text('amount', null, ['class' => 'form-control']) !!}
     </div>
     
     <!-- Mtl Vaule Field -->
     <div class="form-group col-sm-4">
-        {!! Form::label('mtl_vaule', 'လှူဖွယ်ပစ္စည်းတန်ဖိုး') !!}
+        {!! Form::label('mtl_vaule', __('field.material amount')) !!}
         {!! Form::text('mtl_vaule', null, ['class' => 'form-control']) !!}
     </div>
     
     <!-- Mtl Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('mtl', 'လှူဖွယ်ပစ္စည်း') !!}
+        {!! Form::label('mtl', __('field.material')) !!}
         {!! Form::textarea('mtl', null, ['class' => 'form-control','rows'=>'2', 'id' =>'mtl']) !!}
     </div>
     
     
     <!-- Donar Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('donar', 'အလှူရှင်အမည်') !!}
+        {!! Form::label('donar', __('field.donar name')) !!}
         {!! Form::textarea('donar', null, ['class' => 'form-control','rows'=>'2','id'=>'donar']) !!}
     </div>
     
     <!-- Address Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('address', 'နေရပ်လိပ်စာ') !!}
+        {!! Form::label('address', __('field.address')) !!}
         {!! Form::textarea('address', null, ['class' => 'form-control','rows'=>'2','id'=> 'address']) !!}
     </div>
     
     <!-- Submit Field -->
     <div class="form-group col-sm-12">
-        {!! Form::submit('Save', ['class' => 'btn btn-info flat']) !!}
-        <a href="{!! route('htbs.index') !!}" class="btn btn-default">Cancel</a>
+        {!! Form::submit(__('field.save'), ['class' => 'btn btn-info flat']) !!}
+        <a href="{!! route('htbs.index') !!}" class="btn btn-default">{{ __('field.cancel') }}</a>
     </div>
     
     @push('scripts')
