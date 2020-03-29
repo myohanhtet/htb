@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Artisan;
 
 class CreateHtbTable extends Migration
 {
@@ -24,10 +23,6 @@ class CreateHtbTable extends Migration
             $table->text('address');
             $table->timestamps();
         });
-
-        Artisan::call('db:seed',[
-            '--class'=>'UserSeeder',
-        ]);
     }
 
     /**
