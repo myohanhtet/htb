@@ -113,9 +113,7 @@ class HtbController extends AppBaseController
 
             return redirect(route('htbs.index'));
         }
-
-
-
+        
         return view('htbs.edit')->with('htb', $htb);
     }
 
