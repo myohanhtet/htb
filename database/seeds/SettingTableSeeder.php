@@ -13,19 +13,23 @@ class SettingTableSeeder extends Seeder
     public function run()
     {
         $settings = [
-            'title',
-            'invoice-title-two',
-            'invoice-title-three',
-            'invoice-title-one',
-            'dash-title-two',
-            'dash-title-three',
-            'dash-title-one',
-            'dash-title-four'
+            'title' => 'ထန်းတပင်ကျောင်းတိုတ်',
+            'invoice-title-two' => 'ကိုးနဝင်းကပ်ကျော်သိမ်ဦးစေတီတော်၊ (၁၀၅)ကြိမ်မြောက်၊ ဗုဒ္ဓပူဇနိယပွဲတော်',
+            'invoice-title-three' => 'စာရေးတံမဲ လောင်းလှူပူဇော်ပွဲ၊ စာရေးတံမဲ လက်ခံဖြတ်ပိုင်း',
+            'invoice-title-one'=>'ရန်ကုန်တိုင်းဒေသကြီး၊ ကမာရွတ်မြို့နယ်၊ ထန်းတပင်ကျောင်းတိုက်',
+            'dash-title-two' => '(၁၀၅)ကြိမ်မြောက်၊ ဗုဒ္ဓပူဇနိယပွဲတော်',
+            'dash-title-three' => 'စာရေးတံမဲ လောင်းလှူပူဇော်ပွဲ',
+            'dash-title-one' => 'ရန်ကုန်တိုင်းဒေသကြီး၊ ကမာရွတ်မြို့နယ်၊ ထန်းတပင်ကျောင်းတိုက်၊ ဆုတောင်းပြည့်ကိုးနဝင်းကပ်ကျော်သိမ်ဦးစေတီတော်',
+            'dash-title-four' => 'ငွေပဒေသာပင် နှင့် ပစ္စည်းတန်ဖိုး စာရင်းချုပ်',
+            'pathan-invoice-title-two' => 'ကိုးနဝင်းကပ်ကျော်သိမ်ဦးစေတီတော်၊ (၁၀၅)ကြိမ်မြောက်၊ ဗုဒ္ဓပူဇနိယပွဲတော်',
+            'pathan-invoice-title-three' => 'စာရေးတံမဲ လောင်းလှူပူဇော်ပွဲ၊ စာရေးတံမဲ လက်ခံဖြတ်ပိုင်း',
+            'pathan-invoice-title-one'=>'ရန်ကုန်တိုင်းဒေသကြီး၊ ကမာရွတ်မြို့နယ်၊ ထန်းတပင်ကျောင်းတိုက်',
         ];
         
-        foreach($settings as $setting){
+        foreach($settings as $key => $value){
             Setting::create([
-                'name' => $setting
+                'name' => $key,
+                'value' => $value
             ]);
         }
 

@@ -1,6 +1,12 @@
 <li class="{{ Request::is('admin/dashboard*') ? 'active' : '' }}">
     <a href="{!! route('dashboard.index') !!}"><i class="fa fa-tachometer" aria-hidden="true"></i><span>{{ __('menu.dashboard') }}</span></a>
 </li>
+
+@can('view-pathan')
+<li class="{{ Request::is('admin/pathans*') ? 'active' : '' }}">
+    <a href="{!! route('pathans.index') !!}"><i class="fa fa-address-card" aria-hidden="true"></i><span>{{ __('menu.pathan') }}</span></a>
+</li>
+@endcan
 <li class="{{ Request::is('admin/htbs*') ? 'active' : '' }}">
     <a href="{!! route('htbs.index') !!}"><i class="fa fa-edit"></i><span>{{ __('menu.master data') }}</span></a>
 </li>

@@ -73,7 +73,7 @@ class HtbController extends AppBaseController
 
         Flash::success('Htb saved successfully.');
 
-        return view('htbs.print_view',['filename' => $filename, 'htb' =>$htb])->with('filename',$filename);
+        return view('htbs.print_view',['filename' => $filename, 'htb' =>$htb]);
     }
 
     /**

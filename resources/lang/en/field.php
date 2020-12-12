@@ -30,6 +30,7 @@ return [
 'id no' => 'ID No. ',
 'next' => 'Next',
 'edit' => 'Edit',
-'search for' => 'Search for'
+'search for' => 'Search for',
+'value' => 'Value'
 
 ];

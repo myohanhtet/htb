@@ -94,5 +94,21 @@
     {
         "name" : "delete-user",
         "guard_name" : "web"
+    },
+    {
+        "name" : "view-pathan",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "edit-pathan",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "create-pathan",
+        "guard_name" : "web"
+    },
+    {
+        "name" : "delete-pathan",
+        "guard_name" : "web"
     }
 ]

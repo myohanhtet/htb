@@ -21,5 +21,6 @@ return [
     'roles' => 'Roles',
     'permissions' => 'Permissions',
     'settings' => 'Settings',
+    'pathan' => 'Pathan'
 
 ];
