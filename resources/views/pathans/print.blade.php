@@ -43,7 +43,7 @@
     <tbody>
         <tr>
             <td width="20%">အလႉေငြ</td>
-            <td width="80%">{{ strtr($bill['amount'],$en_mya) }} က်ပ္ {{ $bill['material'] }}</td>
+            <td width="80%">{{ strtr($bill['amount'],$en_mya) }} @if($bill['amount']) က်ပ္ @endif{{ $bill['material'] }} @if($bill['amount_mtl']) လႉဖြယ္ပစၥည္းတန္ဖိုး {{ strtr($bill['amount_mtl'],$en_mya) }} က်ပ္ @endif</td>   
         </tr>
         <tr>
             <td></td>
