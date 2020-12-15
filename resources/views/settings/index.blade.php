@@ -4,9 +4,7 @@
     <section class="content-header">
         <h1 class="pull-left">Settings</h1>
         <h1 class="pull-right">
-            @can('create-setting')
-           <a class="btn btn-warning pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('settings.create') !!}">Add New</a>
-           @endcan
+            
         </h1>
     </section>
     <div class="content">
@@ -47,8 +45,12 @@
                 </label>
                 <label class="checkbox-inline">
                 <input type="checkbox" id="inlineCheckbox2" name="donarlist"> Donar List
+                </label>
+                <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox3" name="pathan"> Pathan Data
                 </label> <br><br>
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <input type="password" class="" placeholder="Password" name="password" id="password">
+                <button type="submit" class="btn btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
             </form>
             </div>
             <!-- /.box-body -->

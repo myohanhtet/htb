@@ -72,4 +72,12 @@ class User extends Authenticatable
         return $this->hasMany(Pathan::class);
     }
 
+    /**
+     * Get the htb record associated with the user.
+     */
+    public function htb()
+    {
+        return $this->hasMany(Htb::class);
+    }
+
 }

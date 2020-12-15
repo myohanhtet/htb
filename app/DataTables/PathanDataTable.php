@@ -69,8 +69,8 @@ class PathanDataTable extends DataTable
             'amount',
             'material',
             'amount_mtl',
-            'Created By' => ['name'=> 'user.name','data'=>'user.name'],
-            'address'
+            'address',
+            'Created By' => ['name'=> 'user.name','data'=>'user.name']
         ];
     }
 

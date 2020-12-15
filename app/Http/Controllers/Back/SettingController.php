@@ -9,8 +9,10 @@ use App\Http\Requests\UpdateSettingRequest;
 use App\Repositories\SettingRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Doner;
 use App\Models\Htb;
+use App\Models\Pathan;
 use Response;
 
 class SettingController extends AppBaseController
@@ -157,36 +159,36 @@ class SettingController extends AppBaseController
 
     public function truncate()
     {
-
-        if (request()->masterdata && request()->donarlist == null) {
-
-            Htb::truncate();
-
-            alert()->success('Master data truncate successfully','Success');
-
-            return redirect(route('settings.index'));
-
-        } elseif (request()->donarlist && request()->masterdata == null) {
-
-            Doner::truncate();
-            
-            alert()->success('Donar List truncate successfully','Success');
-
-            return redirect(route('settings.index'));
-
-        } elseif (request()->masterdata || request()->donarlist) {
-
-            Htb::truncate();
-
-            Doner::truncate();
-
-            alert()->success('Master Data and Donar List truncate successfully','Success');
-
+        if (!Hash::check(request()->password,auth()->user()->password)) {
+            alert()->warning('Incorrect password!','Error');
             return redirect(route('settings.index'));
         }
 
-        alert()->error('Please tick this checkbox if you want to truncate tabe','Error');
+        if (!request()->masterdata && !request()->donarlist && !request()->pathan ) {
 
+            alert()->error('Please tick this checkbox if you want to truncate tabe','Error');
+
+            return redirect(route('settings.index'));
+        }
+        
+        $message = "";
+
+        if(request()->masterdata) {
+            Htb::truncate();
+            $message .= "Master data deleted. ";
+        }
+        
+        if(request()->donarlist) {
+            Doner::truncate();
+            $message .= "Doner list deleted. ";
+        }
+        
+        if(request()->pathan) {
+            Pathan::truncate();
+            $message .= "Pathan data deleted. ";
+        }
+
+        alert()->success($message);
         return redirect(route('settings.index'));
     }
 }

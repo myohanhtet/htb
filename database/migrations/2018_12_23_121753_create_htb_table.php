@@ -21,6 +21,8 @@ class CreateHtbTable extends Migration
             $table->integer('mtl_vaule')->default(0)->nullable();
             $table->text('donar');
             $table->text('address');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

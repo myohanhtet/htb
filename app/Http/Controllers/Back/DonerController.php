@@ -162,7 +162,7 @@ class DonerController extends AppBaseController
     
             if ($request->hasFile('donerlist')) {
                 Excel::import(new DonerImport,$request->file('donerlist'));
-                return "Success";
+                return redirect()->back();
             }
             
     }

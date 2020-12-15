@@ -35,6 +35,7 @@ class Htb extends Model
         'mtl_vaule',
         'donar',
         'address',
+        'user_id',
         'win_name',
     ];
 
@@ -62,6 +63,14 @@ class Htb extends Model
         'donar' => 'required',
         'address' => 'required',
     ];
+
+    /**
+     * Get the user that owns the pathan.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     
 }

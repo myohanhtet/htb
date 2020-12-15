@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Setting
+          Setting >  {{ ucfirst($setting->name) }}
         </h1>
    </section>
    <div class="content">

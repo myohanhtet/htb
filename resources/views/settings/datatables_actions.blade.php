@@ -9,12 +9,12 @@
     </a>
     @endcan
 
-    @can('delete-setting')
+    {{-- @can('delete-setting')
     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', [
         'type' => 'submit',
         'class' => 'btn btn-danger btn-xs',
         'onclick' => "return confirm('Are you sure?')"
     ]) !!}
-    @endcan
+    @endcan --}}
 </div>
 {!! Form::close() !!}

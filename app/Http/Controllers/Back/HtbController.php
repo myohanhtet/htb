@@ -66,7 +66,7 @@ class HtbController extends AppBaseController
 
         $input['amount'] = ($input['amount'] == null ? null : strtr($input['amount'],$mya_en) );
         $input['mtl_vaule'] = ($input['mtl_vaule'] == null ? null : strtr($input['mtl_vaule'],$mya_en) );
-
+        $input['user_id'] = auth()->user()->id;
         $htb = $this->htbRepository->create($input);
 
         $filename = $this->printPdf($htb->id);

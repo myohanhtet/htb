@@ -29,7 +29,7 @@ class HtbDataTable extends DataTable
      */
     public function query(Htb $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with('user');
     }
 
     /**
@@ -94,6 +94,7 @@ class HtbDataTable extends DataTable
             'mtl_vaule',
             'donar',
             'address',
+            'create by' => ['data'=>'user.name'],
             'created_at',
             'updated_at',
         ];

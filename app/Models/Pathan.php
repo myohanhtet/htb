@@ -40,7 +40,7 @@ class Pathan extends Model
     ];
 
     /**
-     * Get the user that owns the phone.
+     * Get the user that owns the pathan.
      */
     public function user()
     {
