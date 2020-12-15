@@ -21,13 +21,13 @@
 </div>
 
 <!-- Phone Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-12">
     {!! Form::label('address', __('field.address')) !!}
     {!! Form::textarea('address', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit(__('field.save'), ['class' => 'btn btn-primary']) !!}
+    {!! Form::submit(__('field.save'), ['class' => 'btn btn-success']) !!}
     <a href="{!! route('pathans.index') !!}" class="btn btn-default">{{ __('field.cancel') }}</a>
 </div>

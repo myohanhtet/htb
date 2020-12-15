@@ -136,9 +136,11 @@ class PathanController extends AppBaseController
 
         $pathan = $this->pathanRepository->update($request->all(), $id);
 
+        $filename = $this->printPdf($pathan->id);
+
         Flash::success('Pathan updated successfully.');
 
-        return redirect(route('pathans.index'));
+        return view('pathans.print_view',['filename' => $filename, 'pathans' =>$pathan]);
     }
 
     /**

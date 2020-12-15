@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // return view('home');
+        if(auth()->user()->hasRole('pathan role')) return redirect()->route('pathans.create');
+
+        return redirect()->route('htbs.create');
+        
     }
 }
