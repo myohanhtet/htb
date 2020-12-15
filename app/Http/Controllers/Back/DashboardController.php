@@ -15,12 +15,12 @@ class DashboardController extends \App\Http\Controllers\Controller
      */
     public function index()
     {
-       $sumData = [];
+        $sumData = [];
 
-       $sumData['value'] = Htb::sum('amount');
-       $sumData['mtlvalue'] = Htb::sum('mtl_vaule');
-       $sumData['totalvalue'] = $sumData['value'] + $sumData['mtlvalue'];
-       $sumData['totaldonar'] = Htb::count();
+        $sumData['value'] = Htb::sum('amount');
+        $sumData['mtlvalue'] = Htb::sum('mtl_vaule');
+        $sumData['totalvalue'] = $sumData['value'] + $sumData['mtlvalue'];
+        $sumData['totaldonar'] = Htb::count();
 
         return view('dashboard.index',['sumData' => $sumData]);
     }   

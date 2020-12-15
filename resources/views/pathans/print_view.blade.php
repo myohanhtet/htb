@@ -9,7 +9,7 @@
            <a class="btn btn-primary pull-right flat" style="margin-top: -10px;margin-bottom: 5px" href="{{ route('pathans.edit', $pathans->id) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{ __('field.edit') }}</a>
            <a class="btn btn-success pull-right flat" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('pathans.index') !!}"> <i class="fa fa-backward" aria-hidden="true"></i> {{ __('field.back to table') }}</a>
 
-           <div class="pull-left" style="margin-top: -10px;margin-bottom: 5px">
+           <!-- <div class="pull-left" style="margin-top: -10px;margin-bottom: 5px">
             <form method="GET" action="{{ route('lucky.edit') }}">
                 <div class="col-md-3">
                 <div class="input-group">
@@ -17,10 +17,10 @@
                   <span class="input-group-btn">
                     <button class="btn btn-success" type="submit">{{ __('field.edit') }}</button>
                   </span>
-                </div><!-- /input-group -->
+                </div>
                 </div>
             </form>
-        </div>
+        </div> -->
 
         </h1>
         

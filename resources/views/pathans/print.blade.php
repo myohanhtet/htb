@@ -32,7 +32,7 @@
             <td>ရက္စြဲ</td>
             <td>{{ \Carbon\Carbon::parse($bill['created_at'])->toDayDateTimeString() }}</td>
         </tr>
-       
+        
     </tbody>
 </table>
 <br>

@@ -13,6 +13,7 @@
         @include('flash::message')
 
         <div class="clearfix"></div>
+        <h1>Amount: {{ $pathans['amount'] }}, Material Amount: {{ $pathans['mtl_amount'] }}</h1>
         <div class="box box-warning">
             <div class="box-body">
                     @include('pathans.table')

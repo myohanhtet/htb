@@ -35,7 +35,11 @@ class PathanController extends AppBaseController
      */
     public function index(PathanDataTable $pathanDataTable)
     {
-        return $pathanDataTable->render('pathans.index');
+        //Total amount and mtl_amount
+        $pathans['amount'] = Pathan::sum('amount');
+        $pathans['mtl_amount'] = Pathan::sum('amount_mtl');
+
+        return $pathanDataTable->render('pathans.index',['pathans'=> $pathans]);
     }
 
     /**
@@ -201,6 +205,11 @@ class PathanController extends AppBaseController
         
         return $filename;
 
+    }
+
+    public function report() {
+        $pathans = Pathan::all();
+        return view('pathans.report',['pathans' => $pathans]);
     }
 }
 

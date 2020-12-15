@@ -7,7 +7,7 @@
 <!-- Address Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('amount', __('field.value')) !!}
-    {!! Form::number('amount', null, ['class' => 'form-control']) !!}
+    {!! Form::text('amount', null, ['class' => 'form-control']) !!}
 </div>
 
 <div class="form-group col-sm-3">
@@ -17,7 +17,7 @@
 <!-- Email Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('amount_mtl', __('field.material amount')) !!}
-    {!! Form::number('amount_mtl', null, ['class' => 'form-control']) !!}
+    {!! Form::text('amount_mtl', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Phone Field -->

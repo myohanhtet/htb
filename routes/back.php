@@ -27,3 +27,4 @@
 	Route::resource('permissions', 'PermissionController');
 	Route::resource('users', 'UserController'); 
 	Route::resource('pathans','PathanController');
+	Route::get('pathan/report', 'PathanController@report')->name('pathan.report');
