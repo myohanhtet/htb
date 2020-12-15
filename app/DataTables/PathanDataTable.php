@@ -29,7 +29,7 @@ class PathanDataTable extends DataTable
      */
     public function query(Pathan $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()->with('user');
     }
 
     /**
@@ -69,6 +69,7 @@ class PathanDataTable extends DataTable
             'amount',
             'material',
             'amount_mtl',
+            'Created By' => ['name'=> 'user.name','data'=>'user.name'],
             'address'
         ];
     }

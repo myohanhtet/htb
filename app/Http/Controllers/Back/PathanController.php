@@ -63,9 +63,8 @@ class PathanController extends AppBaseController
 
         $input['amount'] = ($input['amount'] == null ? null : strtr($input['amount'],$mya_en));
         $input['amount_mtl'] = ($input['amount_mtl'] == null ? null : strtr($input['amount_mtl'],$mya_en));
-
+        $input['user_id'] = auth()->user()->id;
         $pathan = $this->pathanRepository->create($input);
-
         $filename = $this->printPdf($pathan->id);
 
         Flash::success('Pathan saved successfully.');

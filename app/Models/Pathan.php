@@ -18,7 +18,7 @@ class Pathan extends Model
 
 
     public $fillable = [
-        'amount','material','amount_mtl','doner','address'
+        'amount','material','amount_mtl','doner','address','user_id'
     ];
 
     /**
@@ -39,5 +39,12 @@ class Pathan extends Model
         
     ];
 
+    /**
+     * Get the user that owns the phone.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     
 }

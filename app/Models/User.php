@@ -64,5 +64,12 @@ class User extends Authenticatable
         // 'password' => 'required'
     ];
 
-    
+    /**
+     * Get the pathan record associated with the user.
+     */
+    public function patnan()
+    {
+        return $this->hasMany(Pathan::class);
+    }
+
 }
