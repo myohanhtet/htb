@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Back;
 
 use Illuminate\Http\Request;
 use App\Models\Htb;
+        f
 
 
 class DashboardController extends \App\Http\Controllers\Controller
@@ -22,7 +23,12 @@ class DashboardController extends \App\Http\Controllers\Controller
         $sumData['totalvalue'] = $sumData['value'] + $sumData['mtlvalue'];
         $sumData['totaldonar'] = Htb::count();
 
-        return view('dashboard.index',['sumData' => $sumData]);
+        $pathan['value'] = Pathan::sum('amount');
+        $pathan['mtlvalue'] = Pathan::sum('amount_mtl');
+        $pathan['totalvalue'] = $pathan['value'] + $pathan['mtlvalue'];
+        $pathan['count'] = pathan::count();
+
+        return view('dashboard.index',['sumData' => $sumData,'pathan'=>$pathan]);
     }   
 
     /**
