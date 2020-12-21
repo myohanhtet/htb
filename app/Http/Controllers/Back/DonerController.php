@@ -77,7 +77,7 @@ class DonerController extends AppBaseController
      */
     public function show($id)
     {
-        $doner = $this->donerRepository->findWithoutFail($id);
+        $doner = $this->donerRepository->find($id);
 
         if (empty($doner)) {
             Flash::error('Doner not found');
@@ -97,7 +97,7 @@ class DonerController extends AppBaseController
      */
     public function edit($id)
     {
-        $doner = $this->donerRepository->findWithoutFail($id);
+        $doner = $this->donerRepository->find($id);
 
         if (empty($doner)) {
             Flash::error('Doner not found');
@@ -118,7 +118,7 @@ class DonerController extends AppBaseController
      */
     public function update($id, UpdateDonerRequest $request)
     {
-        $doner = $this->donerRepository->findWithoutFail($id);
+        $doner = $this->donerRepository->find($id);
 
         if (empty($doner)) {
             Flash::error('Doner not found');
@@ -142,7 +142,7 @@ class DonerController extends AppBaseController
      */
     public function destroy($id)
     {
-        $doner = $this->donerRepository->findWithoutFail($id);
+        $doner = $this->donerRepository->find($id);
 
         if (empty($doner)) {
             Flash::error('Doner not found');

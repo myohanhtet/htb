@@ -85,7 +85,7 @@ class HtbController extends AppBaseController
      */
     public function show($id)
     {
-        $htb = $this->htbRepository->findWithoutFail($id);
+        $htb = $this->htbRepository->find($id);
 
         if (empty($htb)) {
             Flash::error('Htb not found');
@@ -106,7 +106,7 @@ class HtbController extends AppBaseController
      */
     public function edit($id)
     {
-        $htb = $this->htbRepository->findWithoutFail($id);
+        $htb = $this->htbRepository->find($id);
 
         if (empty($htb)) {
             Flash::error('Htb not found');
@@ -127,7 +127,7 @@ class HtbController extends AppBaseController
      */
     public function update($id, UpdateHtbRequest $request)
     {
-        $htb = $this->htbRepository->findWithoutFail($id);
+        $htb = $this->htbRepository->find($id);
 
         if (empty($htb)) {
             Flash::error('Htb not found');
@@ -153,7 +153,7 @@ class HtbController extends AppBaseController
      */
     public function destroy($id)
     {
-        $htb = $this->htbRepository->findWithoutFail($id);
+        $htb = $this->htbRepository->find($id);
 
         if (empty($htb)) {
             Flash::error('Htb not found');

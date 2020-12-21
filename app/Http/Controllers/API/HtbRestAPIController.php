@@ -71,7 +71,7 @@ class HtbRestAPIController extends AppBaseController
     public function show($id)
     {
         /** @var HtbRest $htbRest */
-        $htbRest = $this->htbRestRepository->findWithoutFail($id);
+        $htbRest = $this->htbRestRepository->find($id);
 
         if (empty($htbRest)) {
             return $this->sendError('Htb Rest not found');
@@ -94,7 +94,7 @@ class HtbRestAPIController extends AppBaseController
         $input = $request->all();
 
         /** @var HtbRest $htbRest */
-        $htbRest = $this->htbRestRepository->findWithoutFail($id);
+        $htbRest = $this->htbRestRepository->find($id);
 
         if (empty($htbRest)) {
             return $this->sendError('Htb Rest not found');
@@ -116,7 +116,7 @@ class HtbRestAPIController extends AppBaseController
     public function destroy($id)
     {
         /** @var HtbRest $htbRest */
-        $htbRest = $this->htbRestRepository->findWithoutFail($id);
+        $htbRest = $this->htbRestRepository->find($id);
 
         if (empty($htbRest)) {
             return $this->sendError('Htb Rest not found');

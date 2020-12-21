@@ -77,7 +77,7 @@ class SettingController extends AppBaseController
      */
     public function show($id)
     {
-        $setting = $this->settingRepository->findWithoutFail($id);
+        $setting = $this->settingRepository->find($id);
 
         if (empty($setting)) {
             Flash::error('Setting not found');
@@ -97,7 +97,7 @@ class SettingController extends AppBaseController
      */
     public function edit($id)
     {
-        $setting = $this->settingRepository->findWithoutFail($id);
+        $setting = $this->settingRepository->find($id);
 
         if (empty($setting)) {
             Flash::error('Setting not found');
@@ -118,7 +118,7 @@ class SettingController extends AppBaseController
      */
     public function update($id, UpdateSettingRequest $request)
     {
-        $setting = $this->settingRepository->findWithoutFail($id);
+        $setting = $this->settingRepository->find($id);
 
         if (empty($setting)) {
             Flash::error('Setting not found');
@@ -142,7 +142,7 @@ class SettingController extends AppBaseController
      */
     public function destroy($id)
     {
-        $setting = $this->settingRepository->findWithoutFail($id);
+        $setting = $this->settingRepository->find($id);
 
         if (empty($setting)) {
             Flash::error('Setting not found');

@@ -84,7 +84,7 @@ class RoleController extends AppBaseController
      */
     public function show($id)
     {
-        $role = $this->roleRepository->findWithoutFail($id);
+        $role = $this->roleRepository->find($id);
 
         if (empty($role)) {
             Flash::error('Role not found');
@@ -104,7 +104,7 @@ class RoleController extends AppBaseController
      */
     public function edit($id)
     {
-        $role = $this->roleRepository->findWithoutFail($id);
+        $role = $this->roleRepository->find($id);
 
         if (empty($role)) {
             
@@ -155,7 +155,7 @@ class RoleController extends AppBaseController
      */
     public function destroy($id)
     {
-        $role = $this->roleRepository->findWithoutFail($id);
+        $role = $this->roleRepository->find($id);
 
         if (empty($role)) {
             Flash::error('Role not found');

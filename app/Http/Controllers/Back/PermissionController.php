@@ -81,7 +81,7 @@ class PermissionController extends AppBaseController
      */
     public function show($id)
     {
-        $permission = $this->permissionRepository->findWithoutFail($id);
+        $permission = $this->permissionRepository->find($id);
 
         if (empty($permission)) {
 
@@ -102,7 +102,7 @@ class PermissionController extends AppBaseController
      */
     public function edit($id)
     {
-        $permission = $this->permissionRepository->findWithoutFail($id);
+        $permission = $this->permissionRepository->find($id);
 
         if (empty($permission)) {
 
@@ -152,7 +152,7 @@ class PermissionController extends AppBaseController
      */
     public function destroy($id)
     {
-        $permission = $this->permissionRepository->findWithoutFail($id);
+        $permission = $this->permissionRepository->find($id);
 
         if (empty($permission)) {
             Flash::error('Permission not found');

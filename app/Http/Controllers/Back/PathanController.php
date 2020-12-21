@@ -85,7 +85,7 @@ class PathanController extends AppBaseController
      */
     public function show($id)
     {
-        $pathan = $this->pathanRepository->findWithoutFail($id);
+        $pathan = $this->pathanRepository->find($id);
 
         if (empty($pathan)) {
             Flash::error('Pathan not found');
@@ -109,7 +109,7 @@ class PathanController extends AppBaseController
      */
     public function edit($id)
     {
-        $pathan = $this->pathanRepository->findWithoutFail($id);
+        $pathan = $this->pathanRepository->find($id);
 
         if (empty($pathan)) {
             Flash::error('Pathan not found');
@@ -130,7 +130,7 @@ class PathanController extends AppBaseController
      */
     public function update($id, UpdatePathanRequest $request)
     {
-        $pathan = $this->pathanRepository->findWithoutFail($id);
+        $pathan = $this->pathanRepository->find($id);
 
         if (empty($pathan)) {
             Flash::error('Pathan not found');
@@ -156,7 +156,7 @@ class PathanController extends AppBaseController
      */
     public function destroy($id)
     {
-        $pathan = $this->pathanRepository->findWithoutFail($id);
+        $pathan = $this->pathanRepository->find($id);
 
         if (empty($pathan)) {
             Flash::error('Pathan not found');
