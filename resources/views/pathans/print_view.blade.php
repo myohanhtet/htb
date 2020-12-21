@@ -10,7 +10,7 @@
            <a class="btn btn-success pull-right flat" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('pathans.index') !!}"> <i class="fa fa-backward" aria-hidden="true"></i> {{ __('field.back to table') }}</a>
 
            <!-- <div class="pull-left" style="margin-top: -10px;margin-bottom: 5px">
-            <form method="GET" action="{{ route('lucky.edit') }}">
+            
                 <div class="col-md-3">
                 <div class="input-group">
                  <input type="number" class="form-control" placeholder="{{ __('field.search for') }}..." name="id">
