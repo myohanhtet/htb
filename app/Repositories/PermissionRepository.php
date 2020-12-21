@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Permission;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
 
 /**
  * Class PermissionRepository
@@ -30,5 +30,15 @@ class PermissionRepository extends BaseRepository
     public function model()
     {
         return Permission::class;
+    }
+
+    /**
+     * Return searchable fields
+     *
+     * @return array
+     */
+    public function getFieldsSearchable()
+    {
+        return $this->fieldSearchable;
     }
 }

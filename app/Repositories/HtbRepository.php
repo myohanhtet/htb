@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Htb;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
 
 /**
  * Class HtbRepository
@@ -34,5 +34,14 @@ class HtbRepository extends BaseRepository
     public function model()
     {
         return Htb::class;
+    }
+    /**
+     * Return searchable fields
+     *
+     * @return array
+     */
+    public function getFieldsSearchable()
+    {
+        return $this->fieldSearchable;
     }
 }

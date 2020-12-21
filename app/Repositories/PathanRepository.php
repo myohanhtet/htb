@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Pathan;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
 
 /**
  * Class PathanRepository
@@ -29,5 +29,15 @@ class PathanRepository extends BaseRepository
     public function model()
     {
         return Pathan::class;
+    }
+
+    /**
+     * Return searchable fields
+     *
+     * @return array
+     */
+    public function getFieldsSearchable()
+    {
+        return $this->fieldSearchable;
     }
 }

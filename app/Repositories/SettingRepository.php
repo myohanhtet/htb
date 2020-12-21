@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Setting;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
 
 /**
  * Class SettingRepository
@@ -30,5 +30,15 @@ class SettingRepository extends BaseRepository
     public function model()
     {
         return Setting::class;
+    }
+
+    /**
+     * Return searchable fields
+     *
+     * @return array
+     */
+    public function getFieldsSearchable()
+    {
+        return $this->fieldSearchable;
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\HtbRest;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
 
 /**
  * Class HtbRestRepository
@@ -35,5 +35,14 @@ class HtbRestRepository extends BaseRepository
     public function model()
     {
         return HtbRest::class;
+    }
+    /**
+     * Return searchable fields
+     *
+     * @return array
+     */
+    public function getFieldsSearchable()
+    {
+        return $this->fieldSearchable;
     }
 }

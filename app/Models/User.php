@@ -27,7 +27,6 @@ class User extends Authenticatable
     const UPDATED_AT = 'updated_at';
 
 
-
     public $fillable = [
         'name',
         'email',

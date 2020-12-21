@@ -90,6 +90,7 @@
             </h3>
           </div>
         <!-- </section> -->
+          {{-- Pathan sectiuons --}}
         <div class="row">          
 
           <div class="col-md-3">
@@ -100,7 +101,7 @@
                 <span class="info-box-text">{{ __('field.total amount') }}</span>
                 <span class="info-box-number">                   
                     
-                    {!! strtr(number_format($sumData['value']),$en_mya) !!}
+                    {!! strtr(number_format($pathan['value']),$en_mya) !!}
                   
                 </span>
               </div>
@@ -114,7 +115,7 @@
               <span class="info-box-icon bg-red"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">{{ __('field.material value') }}</span>
-                <span class="info-box-number">{!! strtr(number_format($sumData['mtlvalue']),$en_mya) !!}</span>
+                <span class="info-box-number">{!! strtr(number_format($pathan['mtlvalue']),$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -126,7 +127,7 @@
               <span class="info-box-icon bg-green"><i class="fa fa-usd" aria-hidden="true"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">{{ __('field.all total') }}</span>
-                <span class="info-box-number">{!! strtr(number_format($sumData['totalvalue']),$en_mya) !!}</span>
+                <span class="info-box-number">{!! strtr(number_format($pathan['totalvalue']),$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -139,7 +140,7 @@
               <span class="info-box-icon bg-aqua"><i class="fa fa-users" aria-hidden="true"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">{{ __('field.donars total') }}</span>
-                <span class="info-box-number">{!! strtr($sumData['totaldonar'],$en_mya) !!}</span>
+                <span class="info-box-number">{!! strtr($pathan['totaldonar'],$en_mya) !!}</span>
               </div>
               <!-- /.info-box-content -->
             </div>

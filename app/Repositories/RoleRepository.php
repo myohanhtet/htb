@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Role;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
 
 /**
  * Class RoleRepository
@@ -30,5 +30,15 @@ class RoleRepository extends BaseRepository
     public function model()
     {
         return Role::class;
+    }
+
+    /**
+     * Return searchable fields
+     *
+     * @return array
+     */
+    public function getFieldsSearchable()
+    {
+        return $this->fieldSearchable;
     }
 }

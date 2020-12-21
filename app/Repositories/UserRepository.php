@@ -3,7 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\User;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
+
 
 /**
  * Class UserRepository
@@ -27,6 +28,16 @@ class UserRepository extends BaseRepository
         'remember_token'
     ];
 
+     /**
+     * Return searchable fields
+     *
+     * @return array
+     */
+    public function getFieldsSearchable()
+    {
+        return $this->fieldSearchable;
+    }
+
     /**
      * Configure the Model
      **/
@@ -34,4 +45,5 @@ class UserRepository extends BaseRepository
     {
         return User::class;
     }
+    
 }
