@@ -13,7 +13,7 @@
 	Route::get('print','HtbController@printPdf');
 	Route::get('dashboard','DashboardController@index')->name('dashboard.index');
 	Route::get('lucky-find','LuckyController@showPrint')->name('lucky.find');
-	Route::get('lucky-edit','LuckyController@edit')->name('lucky.edit');
+	Route::get('lucky-edit','LuckyController@edit')->name('lucky-find.edit');
 	Route::post('doners/upload','DonerController@upload')->name('doner.upload');
 	Route::get('mtlautocomplete', 'HtbController@mtlautocomplete')->name('mtlautocomplete');
 	Route::get('donarautocomplete', 'HtbController@donarautocomplete')->name('donarautocomplete');

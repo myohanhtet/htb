@@ -14,7 +14,7 @@
                 
 
                 
-                  <form method="GET" action="{{ route('lucky.edit') }}">
+                  <form method="GET" action="{{ route('lucky-find.edit') }}">
                     <div class="col-lg-6">
                   <div class="input-group">
                     <input type="number" class="form-control" placeholder="Search for ID Number" name="id">
