@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back;
 use Illuminate\Http\Request;
 use App\Models\Htb;
 use App\Models\Pathan;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends \App\Http\Controllers\Controller
 {
