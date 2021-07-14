@@ -13,6 +13,7 @@ use App\Repositories\HtbRepository;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use \PDF;
 
 class HtbController extends AppBaseController
 {
@@ -69,6 +70,7 @@ class HtbController extends AppBaseController
         $input['user_id'] = auth()->user()->id;
         $htb = $this->htbRepository->create($input);
 
+        
         $filename = $this->printPdf($htb->id);
 
         Flash::success('Htb saved successfully.');
@@ -86,6 +88,10 @@ class HtbController extends AppBaseController
     public function show($id)
     {
         $htb = $this->htbRepository->find($id);
+
+        $pdf = PDF::loadView('htbs.test', ['htb'=> $htb]);
+        
+        return $pdf->download('invoice.pdf');
 
         if (empty($htb)) {
             Flash::error('Htb not found');

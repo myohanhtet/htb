@@ -178,13 +178,13 @@ class PathanController extends AppBaseController
         $bill['material'] = uni2zg($bill['material']);
         $bill['doner'] = uni2zg($bill['doner']);
         $bill['address'] = uni2zg($bill['address']);
-        
+
         $pdf = new PATHANPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Kophyo');
         $pdf->SetTitle('လက္ခံျဖတ္ပိုင္း');
         $pdf->SetSubject('invoice');
-        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');  
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
         $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 006', PDF_HEADER_STRING);
 
@@ -196,13 +196,13 @@ class PathanController extends AppBaseController
         $pdf->SetFont($fontname, '', 11, '', false);
         $view = view('pathans.print')->with('bill', $bill);
         $html = $view->render();
-        $pdf->AddPage();        
+        $pdf->AddPage();
         $pdf->writeHTML($html);
-        
+
         $filelocation = public_path('invoice/pathans/');
         $filename = $bill['id'].'_'. date('Y_m_i_s') .'.pdf';
         $pdf->Output($filelocation . $filename ,'F');
-        
+
         return $filename;
 
     }
