@@ -18,7 +18,8 @@ class Role extends Model
 {
 
     public $table = 'roles';
-    
+    public $keyType = 'string';
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 

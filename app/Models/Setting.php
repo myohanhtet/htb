@@ -16,7 +16,8 @@ class Setting extends Model
 {
 
     public $table = 'settings';
-    
+    public $keyType = 'string';
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -44,8 +45,8 @@ class Setting extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+
 }

@@ -22,7 +22,8 @@ class User extends Authenticatable
     use Notifiable,HasRoles;
 
     public $table = 'users';
-    
+    public $keyType = 'string';
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -49,7 +50,7 @@ class User extends Authenticatable
         'password' => 'string',
         'remember_token' => 'string',
         'username' => 'string'
-        
+
     ];
 
     /**

@@ -18,7 +18,8 @@ class Doner extends Model
 {
 
     public $table = 'doners';
-    
+    public $keyType = 'string';
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -50,8 +51,8 @@ class Doner extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+
 }

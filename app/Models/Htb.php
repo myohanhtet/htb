@@ -22,7 +22,8 @@ class Htb extends Model
 {
 
     public $table = 'htb';
-    
+    public $keyType = 'string';
+
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
 
@@ -72,5 +73,5 @@ class Htb extends Model
         return $this->belongsTo(User::class);
     }
 
-    
+
 }

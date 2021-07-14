@@ -18,13 +18,13 @@ class AddUsernameInUserTable extends Migration
             $table->string('username')->nullable()->after('name');
         });
 
-//        Artisan::call('db:seed',[
-//            '--class'=>'RoleAndPermissionTableSeeder',
-//        ]);
-//
-//        Artisan::call('db:seed',[
-//            '--class'=>'UserSeeder',
-//        ]);
+        Artisan::call('db:seed',[
+            '--class'=>'RoleAndPermissionTableSeeder',
+        ]);
+
+        Artisan::call('db:seed',[
+            '--class'=>'UserSeeder',
+        ]);
     }
 
     /**

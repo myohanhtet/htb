@@ -14,7 +14,8 @@ class Pathan extends Model
 {
 
     public $table = 'pathan';
-    
+    public $keyType = 'string';
+
 
 
     public $fillable = [
@@ -36,7 +37,7 @@ class Pathan extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**
@@ -46,5 +47,5 @@ class Pathan extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
 }
