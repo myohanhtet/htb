@@ -17,18 +17,18 @@ class DashboardController extends \App\Http\Controllers\Controller
     {
         $sumData = [];
 
-        $sumData['value'] = Htb::sum('amount');
-        $sumData['mtlvalue'] = Htb::sum('mtl_vaule');
+        $sumData['value'] = Htb::select(DB::raw('sum(cast(amount as double precision))'))->get();
+        $sumData['mtlvalue'] = Htb::select(DB::raw('sum(cast(mtl_vaule as double precision))'))->get();
         $sumData['totalvalue'] = $sumData['value'] + $sumData['mtlvalue'];
         $sumData['totaldonar'] = Htb::count();
 
-        $pathan['value'] = Pathan::sum('amount');
-        $pathan['mtlvalue'] = Pathan::sum('amount_mtl');
+        $pathan['value'] = Pathan::select(DB::raw('sum(cast(amount as double precision))'))->get();
+        $pathan['mtlvalue'] = Pathan::select(DB::raw('sum(cast(amount_mtl as double precision))'))->get();
         $pathan['totalvalue'] = $pathan['value'] + $pathan['mtlvalue'];
         $pathan['totaldonar'] = pathan::count();
 
         return view('dashboard.index',['sumData' => $sumData,'pathan'=>$pathan]);
-    }   
+    }
 
     /**
      * Show the form for creating a new resource.
