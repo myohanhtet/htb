@@ -19,9 +19,9 @@ class AddedSettingsTable extends Migration
             $table->string('value')->nullable()->change();
         });
 
-        Artisan::call('db:seed',[
-            '--class'=>'SettingTableSeeder',
-        ]);
+//        Artisan::call('db:seed',[
+//            '--class'=>'SettingTableSeeder',
+//        ]);
     }
 
     /**

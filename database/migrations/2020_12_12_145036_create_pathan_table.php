@@ -15,9 +15,9 @@ class CreatePathanTable extends Migration
     {
         Schema::create('pathan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('amount')->nullable();
+            $table->integer('amount')->nullable();
             $table->string('material')->nullable();
-            $table->string('amount_mtl')->nullable();
+            $table->integer('amount_mtl')->nullable();
             $table->string('doner');
             $table->string('address');
             $table->timestamps();

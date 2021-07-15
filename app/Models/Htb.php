@@ -22,7 +22,7 @@ class Htb extends Model
 {
 
     public $table = 'htb';
-    public $keyType = 'string';
+       public $keyType = 'string';
 
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';

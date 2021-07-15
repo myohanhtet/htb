@@ -12,19 +12,18 @@ class DashboardController extends \App\Http\Controllers\Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
-        $sumData = [];
 
-        $sumData['value'] = Htb::select(DB::raw('sum(cast(amount as double precision))'))->get();
-        $sumData['mtlvalue'] = Htb::select(DB::raw('sum(cast(mtl_vaule as double precision))'))->get();
+        $sumData = [];
+        $sumData['value'] = DB::table('htb')->sum('amount');
+        $sumData['mtlvalue'] = DB::table('htb')->sum('mtl_vaule');
         $sumData['totalvalue'] = $sumData['value'] + $sumData['mtlvalue'];
         $sumData['totaldonar'] = Htb::count();
-
-        $pathan['value'] = Pathan::select(DB::raw('sum(cast(amount as double precision))'))->get();
-        $pathan['mtlvalue'] = Pathan::select(DB::raw('sum(cast(amount_mtl as double precision))'))->get();
+        $pathan['value'] = DB::table('pathan')->sum('amount');
+        $pathan['mtlvalue'] = DB::table('pathan')->sum('amount_mtl');
         $pathan['totalvalue'] = $pathan['value'] + $pathan['mtlvalue'];
         $pathan['totaldonar'] = pathan::count();
 

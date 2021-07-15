@@ -11,6 +11,7 @@ use App\Models\Pathan;
 use App\Models\Setting;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
 use Response;
 
 class PathanController extends AppBaseController
@@ -36,8 +37,8 @@ class PathanController extends AppBaseController
     public function index(PathanDataTable $pathanDataTable)
     {
         //Total amount and mtl_amount
-        $pathans['amount'] = Pathan::sum('amount');
-        $pathans['mtl_amount'] = Pathan::sum('amount_mtl');
+        $pathans['amount'] = DB::table('pathan')->sum('amount');
+        $pathans['mtl_amount'] = DB::table('pathan')->sum('amount_mtl');
 
         return $pathanDataTable->render('pathans.index',['pathans'=> $pathans]);
     }
