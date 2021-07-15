@@ -10,7 +10,7 @@
            <a class="btn btn-success pull-right flat" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('pathans.index') !!}"> <i class="fa fa-backward" aria-hidden="true"></i> {{ __('field.back to table') }}</a>
 
            <!-- <div class="pull-left" style="margin-top: -10px;margin-bottom: 5px">
-            
+
                 <div class="col-md-3">
                 <div class="input-group">
                  <input type="number" class="form-control" placeholder="{{ __('field.search for') }}..." name="id">
@@ -23,24 +23,24 @@
         </div> -->
 
         </h1>
-        
+
     </section>
 
     <div class="content">
         <div class="clearfix"></div>
 
         @include('flash::message')
-        
+
         <div class="clearfix"></div>
 
             <div class="text-center">
-                <object data="{{ url('invoice/pathans/') .'/' .$filename }}" type="application/pdf" width="1120" height="500">
+                <object data="{{ url('invoice') .'/' .$filename }}" type="application/pdf" width="1120" height="500">
                     <p>Cannot load PDF</p>
                 </object>
             </div>
-  
+
         </div>
-        
+
     </div>
 @endsection
 

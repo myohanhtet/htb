@@ -9,10 +9,10 @@ use App\Http\Requests\UpdatePathanRequest;
 use App\Repositories\PathanRepository;
 use App\Models\Pathan;
 use App\Models\Setting;
-use Flash;
 use App\Http\Controllers\AppBaseController;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Support\Facades\DB;
-use Response;
+use Laracasts\Flash\Flash;
 
 class PathanController extends AppBaseController
 {
@@ -46,7 +46,7 @@ class PathanController extends AppBaseController
     /**
      * Show the form for creating a new Pathan.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|Response
      */
     public function create()
     {
@@ -58,7 +58,7 @@ class PathanController extends AppBaseController
      *
      * @param CreatePathanRequest $request
      *
-     * @return Response
+     * @return Response|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function store(CreatePathanRequest $request)
     {
@@ -82,7 +82,7 @@ class PathanController extends AppBaseController
      *
      * @param  int $id
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|Response
      */
     public function show($id)
     {
@@ -97,8 +97,6 @@ class PathanController extends AppBaseController
         $filename = $this->printPdf($pathan->id);
 
         return view('pathans.print_view',['filename' => $filename, 'pathans' =>$pathan]);
-
-        // return view('pathans.show')->with('pathan', $pathan);
     }
 
     /**
@@ -200,7 +198,7 @@ class PathanController extends AppBaseController
         $pdf->AddPage();
         $pdf->writeHTML($html);
 
-        $filelocation = public_path('invoice/pathans/');
+        $filelocation = public_path('invoice/');
         $filename = $bill['id'].'_'. date('Y_m_i_s') .'.pdf';
         $pdf->Output($filelocation . $filename ,'F');
 

@@ -70,7 +70,7 @@ class HtbController extends AppBaseController
         $input['user_id'] = auth()->user()->id;
         $htb = $this->htbRepository->create($input);
 
-        
+
         $filename = $this->printPdf($htb->id);
 
         Flash::success('Htb saved successfully.');
@@ -83,21 +83,20 @@ class HtbController extends AppBaseController
      *
      * @param  int $id
      *
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|Response
      */
     public function show($id)
     {
         $htb = $this->htbRepository->find($id);
 
         $pdf = PDF::loadView('htbs.test', ['htb'=> $htb]);
-        
-        return $pdf->download('invoice.pdf');
 
         if (empty($htb)) {
             Flash::error('Htb not found');
 
             return redirect(route('htbs.index'));
         }
+
         $filename = $this->printPdf($htb->id);
 
         return view('htbs.print_view',['filename'=> $filename ,'htb'=> $htb]);
@@ -119,7 +118,7 @@ class HtbController extends AppBaseController
 
             return redirect(route('htbs.index'));
         }
-        
+
         return view('htbs.edit')->with('htb', $htb);
     }
 
@@ -188,9 +187,9 @@ class HtbController extends AppBaseController
 
     {
             $search = $request->get('term');
-      
+
           $result = Htb::where('mtl', 'LIKE', '%'. $search. '%')->get();
- 
+
           return response()->json($result);
 
     }
@@ -209,9 +208,9 @@ class HtbController extends AppBaseController
 
     {
             $search = $request->get('term');
-      
+
           $result = Doner::where('name', 'LIKE', '%'. $search. '%')->get();
- 
+
           return response()->json($result);
 
     }
@@ -230,9 +229,9 @@ class HtbController extends AppBaseController
 
     {
             $search = $request->get('term');
-      
+
           $result = Doner::where('address', 'LIKE', '%'. $search. '%')->get();
- 
+
           return response()->json($result);
 
     }
@@ -249,7 +248,7 @@ class HtbController extends AppBaseController
         $pdf->SetAuthor('Kophyo');
         $pdf->SetTitle('လက္ခံျဖတ္ပိုင္း');
         $pdf->SetSubject('invoice');
-        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');  
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
         $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 006', PDF_HEADER_STRING);
 
@@ -261,13 +260,13 @@ class HtbController extends AppBaseController
         $pdf->SetFont($fontname, '', 11, '', false);
         $view = view('htbs.print')->with('bill', $bill);
         $html = $view->render();
-        $pdf->AddPage();        
+        $pdf->AddPage();
         $pdf->writeHTML($html);
-        
+
         $filelocation = public_path('invoice/');
         $filename = $bill['id'].'_'. date('Y_m_i_s') .'.pdf';
         $pdf->Output($filelocation . $filename ,'F');
-        
+
         return $filename;
 
     }

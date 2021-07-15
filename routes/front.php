@@ -2,7 +2,7 @@
 
 // Route::redirect('/', 'admin/htbs/create');
 Route::get('/',function(){
-	return redirect()->route('dashboard.index');
+	return view('welcome');
 });
 
 Route::get('locale/{locale}', function ($locale){
