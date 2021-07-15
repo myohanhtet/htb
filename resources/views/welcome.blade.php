@@ -6,6 +6,13 @@
     <title>Htantabin Monastery</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ url('image/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('image/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('image/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url('image/favicon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url('image/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
+
     <!-- Styles -->
     <style>
         html, body {

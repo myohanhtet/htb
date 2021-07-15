@@ -24,6 +24,12 @@
     <!-- iCheck -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/_all.css">
 
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ url('image/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('image/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('image/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url('image/favicon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ url('image/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
