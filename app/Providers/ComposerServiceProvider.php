@@ -15,7 +15,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer(
-            ['htbs/*','luckys/*','dashboard/*','pathans/*'], 'App\Http\View\Composers\SettingComposer'
+            ['htbs/*','luckys/*','dashboard/*','pathans/*','frontend/*'], 'App\Http\View\Composers\SettingComposer'
         );
 
     }

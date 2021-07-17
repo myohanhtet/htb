@@ -16,7 +16,7 @@
 								<option value="" disabled selected>Select your Domain</option>
 				           	@foreach($domain as $do)
 				           	 	<option value="{{ $do->id }}">{{ $do->name }}</option>
-				           	@endforeach        	 
+				           	@endforeach
 				           </select>
 						</div>
 						<div class="col-md-5">
@@ -24,17 +24,17 @@
 								<option value="" disabled selected>Select your Sub-Domain</option>
 				           	@foreach($subdomain as $sdo)
 				           	 	<option value="{{ $sdo->id }}">{{ $sdo->name }}</option>
-				           	@endforeach        	 
+				           	@endforeach
 				           </select>
 						</div>
 						<div class="col-md-2">
 							<a class="btn btn-success flat btn-block" href="{!! route('projects.create') !!}"><i class="fa fa-plus"></i>    Add New</a>
 						</div>
 					</div>
-				</div>        
-		        </div><!-- panel --> 
+				</div>
+		        </div><!-- panel -->
         	</div>
-        </div>     
+        </div>
     </section>
     <div class="content">
         <div class="clearfix"></div>
@@ -49,7 +49,7 @@
 						<th>Detail</th>
 						<th>Priority Level</th>
 						<th>Status</th>
-						<th>Remark</th>						
+						<th>Remark</th>
 						<th>Schedule Start Date</th>
 						<th>Estimated End Date</th>
 						<th>Estimated Duration</th>
@@ -72,7 +72,7 @@
 						<td>{{ \Carbon\Carbon::parse($do['estimated_end_date'])->toFormattedDateString() }}</td>
 						<td>{{ $do['estimated_uration'] }}</td>
 						<td>{{ \Carbon\Carbon::parse($do['actual_start_date'])->toFormattedDateString() }}</td>
-						<td>{{ \Carbon\Carbon::parse($do['actual_end_date'])->toFormattedDateString() }}</td>	
+						<td>{{ \Carbon\Carbon::parse($do['actual_end_date'])->toFormattedDateString() }}</td>
 						<td>{{ $do['actual_duration'] }}</td>
 						<td>{{ $do['updated_at'] }}</td>
 						<td>{{ $do['created_at'] }}</td>
@@ -89,13 +89,13 @@
 					</tr>
 					@endforeach
 
-					
+
 				</tbody>
 			</table>
 	                </div>
 	            </div>
         <div class="text-center">
-            
+
         </div>
     </div>
 @include('projects.models')
@@ -103,7 +103,7 @@
 
 @push('scripts')
 	<script>
-	
+
 	// $(document).ready(function() {
 	//     $('#domain').DataTable();
 	// });
@@ -120,12 +120,12 @@
                         var val = $.fn.dataTable.util.escapeRegex(
                             $(this).val()
                         );
- 
+
                         column
                             .search( val ? '^'+val+'$' : '', true, false )
                             .draw();
                     } );
- 
+
                 column.data().unique().sort().each( function ( d, j ) {
                     select.append( '<option value="'+d+'">'+d+'</option>' )
                 } );
@@ -139,11 +139,11 @@
 	$('#showProject').on('show.bs.modal', function (event) {
             $.LoadingOverlay("show");
               var button = $(event.relatedTarget)
-              var recipient = button.data('whatever') 
+              var recipient = button.data('whatever')
               var modal = $(this)
               // modal.find('.modal-title').text(data.subdomains[0].name)
               // modal.find('.modal-body input').val(recipient)
-              
+
               $.get( "{{ route('projects.index') }}/" + recipient, function( data ) {
                   modal.find('.modal-title').text(data.domains[0].name + " > " + data.subdomains[0].name);
                   console.log(data);
@@ -172,11 +172,11 @@
           $( ".project_se" ).remove();
         });
 
-        $('.domain_search').on('change', function() {  			 
+        $('.domain_search').on('change', function() {
   			 window.location.href = "{{ url('domain') }}/" + this.value;
 		});
 
-		$('.subdomain_search').on('change', function() {  			 
+		$('.subdomain_search').on('change', function() {
   			 window.location.href = "{{ url('subdomain') }}/" + this.value;
 		});
 
