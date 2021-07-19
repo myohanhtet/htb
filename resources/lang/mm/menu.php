@@ -14,7 +14,7 @@ return [
     */
 
     'dashboard' => 'ထိန်းချုပ်ခလုတ်ခုံ',
-    'master data' => 'မူရင်းအချတ်အလတ်',
+    'master data' => 'စာရေးတံမဲ',
     'lucky number' => 'မဲနံပါတ်',
     'donars' => 'အလှူရှင်',
     'users' => 'အသုံးပြုသူ',

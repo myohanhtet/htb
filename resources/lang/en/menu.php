@@ -14,7 +14,7 @@ return [
     */
 
     'dashboard' => 'Dashboard',
-    'master data' => 'Master Data',
+    'master data' => 'Lucky Draw',
     'lucky number' => 'Lucky No',
     'donars' => 'Donars',
     'users' => 'Users',

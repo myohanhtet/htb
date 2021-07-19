@@ -3,9 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+
+    <meta name="description" content="ရန်ကုန်တိုင်းဒေသကြီး၊ ကမာရွတ်မြို့နယ်၊ ထန်းတပင်ကျောင်းတိုက်၊ ဆုတောင်းပြည့်ကိုးနဝင်းကပ်ကျော်သိမ်ဦးစေတီတော်" />
+    <meta name="author" content="myohanhtet" />
     <title>Htantabin Monastery</title>
+
+    <meta property="og:title" content="Htantabin Monastery">
+    <meta property="og:description" content="ရန်ကုန်တိုင်းဒေသကြီး၊ ကမာရွတ်မြို့နယ်၊ ထန်းတပင်ကျောင်းတိုက်၊ ဆုတောင်းပြည့်ကိုးနဝင်းကပ်ကျော်သိမ်ဦးစေတီတော်">
+    <meta property="og:image" content="{{ url('image/bg.jpg') }}">
+    <meta property="og:url" content="http://htantabin.com/">
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />

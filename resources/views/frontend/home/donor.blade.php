@@ -24,27 +24,28 @@
             </div>
         </div>
     </form>
-
-    <table class="table">
-        <thead class="table-dark">
-        <tr>
-            <th>နာမည်</th>
-            <th>အလှူငွေ</th>
-            <th>လှူဖွယ်ပစ္စည်း</th>
-            <th>နေ့စွဲ</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($donors as $donor)
-        <tr>
-            <td>{{ $donor->donar }}</td>
-            <td>{{ strtr(number_format($donor->amount),$en_mya) }}</td>
-            <td>{{ $donor->mtl }}</td>
-            <td>{{ $donor->created_at->toFormattedDateString() }}</td>
-        </tr>
-        @endforeach
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+            <tr>
+                <th>နာမည်</th>
+                <th>အလှူငွေ</th>
+                <th>လှူဖွယ်ပစ္စည်း</th>
+                <th>နေ့စွဲ</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($donors as $donor)
+            <tr>
+                <td>{{ $donor->donar }}</td>
+                <td>{{ strtr(number_format($donor->amount),$en_mya) }}</td>
+                <td>{{ $donor->mtl }}</td>
+                <td>{{ $donor->created_at->toFormattedDateString() }}</td>
+            </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
     {{ $donors->links() }}
 </div>
 @endsection

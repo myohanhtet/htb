@@ -38,9 +38,6 @@ class HomeController extends Controller
         $pathan['totaldonar'] = pathan::count();
 
          return view('frontend.home.index',['sumData' => $sumData,'pathan'=>$pathan]);
-//        if(auth()->user()->hasRole('pathan role')) return redirect()->route('pathans.create');
-//
-//        return redirect()->route('htbs.create');
 
     }
 
@@ -54,6 +51,7 @@ class HomeController extends Controller
         $donors = Htb::query()
             ->where('donar', 'LIKE', "%{$search}%")
             ->orWhere('address', 'LIKE', "%{$search}%")
+            ->latest()
             ->paginate(10);
 
         return view('frontend.home.donor',['donors' => $donors]);
